@@ -1,0 +1,11 @@
+.navbarBottom {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98dvw;
+  height: auto;
+  max-height: 80dvh;
+  z-index: -1;
+  pointer-events: none;
+}

@@ -1,0 +1,9 @@
+.navbarTop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75dvw;
+  height: auto;
+  max-height: 55dvh;
+}
