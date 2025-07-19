@@ -21,6 +21,7 @@ export const NavbarPages = () => {
   const [mainId, setMainId] = useState(0);
 
   const handleClick = (index: number) => {
+    if (mainId === index) return;
     const totalSteps = (icons.length + mainId - index) % icons.length;
 
     let count = 0;
