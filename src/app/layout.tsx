@@ -6,6 +6,10 @@ import { LangProvider } from "@context/LangContext/LangProvider";
 import { Lang } from "@utils/langUtils";
 import { ThemeProvider } from "@context/ThemeContext/ThemeProvider";
 
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
 export const metadata: Metadata = {
   title: "Dev Luch",
   description: "Portfólio do Dev Luch",

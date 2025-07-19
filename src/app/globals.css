@@ -1,11 +1,19 @@
 :root {
-  --background: #ffffff;
+  --background: #1033AD;
+  --text: #ffffff;
   --foreground: #171717;
+  --border: #27AEF4;
+  --active-border: #3CE5FC;
+  --icon-background: #0A41CB;
 }
 
 [data-theme="dark"] {
-  --background: #0a0a0a;
+  --background: #1033AD;
+  --text: #ffffff;
   --foreground: #ededed;
+  --border: #27AEF4;
+  --active-border: #3CE5FC;
+  --icon-background: #0A41CB;
 }
 
 html,
@@ -16,7 +24,9 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: linear-gradient(to bottom, var(--background), #000000);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

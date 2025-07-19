@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  padding: 32px;
+  background-color: #040F57;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.main {
+  width: 48px;
+  height: 48px;
+  padding: 80px;
+  border: 2px solid cyan;
+  color: cyan;
+  z-index: 2;
+}
+
+.icon0 {
+  top: 16px;
+  left: 16px;
+}
+
+.icon1 {
+  top: 8px;
+  left: calc(16px + 128px + 32px);
+}
+
+.icon2 {
+  top: 110px;
+  left: calc(16px + 128px + 48px);
+}
+
+.icon3 {
+  top: calc(16px + 128px + 48px);
+  left: 110px;
+}
+
+.icon4 {
+  top: calc(16px + 128px + 32px);
+  left: 8px;
+}
