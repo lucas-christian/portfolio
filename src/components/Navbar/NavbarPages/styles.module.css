@@ -4,11 +4,15 @@
   height: 300px;
 }
 
-.icon {
+.iconRoot {
   position: absolute;
-  width: 32px;
-  height: 32px;
-  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  padding: 24px;
   background-color: #040F57;
   border-radius: 50%;
   color: white;
@@ -23,7 +27,7 @@
 .main {
   width: 48px;
   height: 48px;
-  padding: 80px;
+  padding: 55px;
   border: 2px solid cyan;
   color: cyan;
   z-index: 2;

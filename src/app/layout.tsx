@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Orbitron } from "next/font/google";
+import { Inter, Orbitron, Audiowide } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { LangProvider } from "@context/LangContext/LangProvider";
@@ -25,6 +25,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const audiowide = Audiowide({
+  variable: "--font-audiowide",
+  subsets: ["latin"],
+  weight: "400"
+});
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +40,7 @@ export default async function RootLayout({
   const lang = headersList.get('accept-language')?.split(',')[0] || 'en-US';
   return (
     <html lang={lang}>
-      <body className={`${inter.variable} ${orbitron.variable}`}>
+      <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable}`}>
         <LangProvider language={lang as Lang}>
           <ThemeProvider>
             {children}

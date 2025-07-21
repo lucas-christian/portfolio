@@ -1,0 +1,9 @@
+.title {
+  font-family: var(--font-audiowide);
+  font-size: 48px;
+  color: var(--text);
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}

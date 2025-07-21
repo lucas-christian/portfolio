@@ -1,0 +1,55 @@
+.titleRootPos {
+  position: absolute;
+  top: 12dvh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.titleRoot {
+  position: relative;
+  width: max-content;
+  padding: 16px;
+}
+
+.title {
+  font-family: var(--font-orbitron);
+  color: var(--electric-blue);
+}
+
+.titleContainer {
+  background-color: var(--picton-blue);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 32%;
+  width: 90%;
+  height: 50%;
+}
+
+.corner {
+  position: absolute;
+}
+
+.corner0 {
+  top: 6px;
+  left: 6px;
+}
+
+.corner1 {
+  top: 6px;
+  right: 6px;
+  transform: scaleX(-1);
+}
+
+.corner2 {
+  transform: scaleY(-1);
+  bottom: 6px;
+  left: 6px;
+}
+
+.corner3 {
+  bottom: 6px;
+  right: 6px;
+  transform: scale(-1, -1);
+}

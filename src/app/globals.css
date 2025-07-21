@@ -5,6 +5,8 @@
   --border: #27AEF4;
   --active-border: #3CE5FC;
   --icon-background: #0A41CB;
+  --picton-blue: #27AEF4;
+  --electric-blue: #3CE5FC;
 }
 
 [data-theme="dark"] {
@@ -14,6 +16,8 @@
   --border: #27AEF4;
   --active-border: #3CE5FC;
   --icon-background: #0A41CB;
+  --picton-blue: #27AEF4;
+  --electron-blue: #3CE5FC;
 }
 
 html,
