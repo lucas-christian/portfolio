@@ -1,6 +1,6 @@
 .titleRootPos {
   position: absolute;
-  top: 12dvh;
+  top: 8dvh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -52,4 +52,16 @@
   bottom: 6px;
   right: 6px;
   transform: scale(-1, -1);
+}
+
+@media (min-width: 1024px) {
+  .titleRootPos {
+    top: 10dvh;
+  }
+}
+
+@media (min-width: 1440px) {
+  .titleRootPos {
+    top: 12dvh;
+  }
 }

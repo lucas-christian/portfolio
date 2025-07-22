@@ -1,9 +1,9 @@
 "use client";
 // import { useLang } from "@hooks/useLang";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 // import { useTheme } from "@hooks/useTheme";
 
-export default function Home() {
+export default function Skills() {
   // const { t, lang, changeLanguage } = useLang();
   // const { setTheme } = useTheme();
   return (

@@ -8,6 +8,7 @@ import { ThemeProvider } from "@context/ThemeContext/ThemeProvider";
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { Navbar } from "../components/Navbar";
 config.autoAddCss = false
 
 export const metadata: Metadata = {
@@ -38,11 +39,13 @@ export default async function RootLayout({
 }>) {
   const headersList = await headers();
   const lang = headersList.get('accept-language')?.split(',')[0] || 'en-US';
+
   return (
     <html lang={lang}>
       <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable}`}>
         <LangProvider language={lang as Lang}>
           <ThemeProvider>
+            <Navbar />
             {children}
           </ThemeProvider>
         </LangProvider>

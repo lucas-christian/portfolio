@@ -7,12 +7,13 @@
 .iconRoot {
   position: absolute;
   transition: all 0.3s ease;
+  display: none;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
-  padding: 24px;
+  width: 16px;
+  height: 16px;
+  padding: 16px;
   background-color: #040F57;
   border-radius: 50%;
   color: white;
@@ -24,10 +25,22 @@
   z-index: 1;
 }
 
+.iconMobile {
+  width: 24px;
+  height: 24px;
+  color: var(--text);
+}
+
+.sidebarIcon {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+}
+
 .main {
-  width: 48px;
-  height: 48px;
-  padding: 55px;
+  width: 32px;
+  height: 32px;
+  padding: 32px;
   border: 2px solid cyan;
   color: cyan;
   z-index: 2;
@@ -40,20 +53,90 @@
 
 .icon1 {
   top: 8px;
-  left: calc(16px + 128px + 32px);
+  left: 116px;
 }
 
 .icon2 {
-  top: 110px;
-  left: calc(16px + 128px + 48px);
+  top: 116px;
+  left: 72px;
 }
 
 .icon3 {
-  top: calc(16px + 128px + 48px);
-  left: 110px;
+  top: 72px;
+  left: 116px;
 }
 
 .icon4 {
-  top: calc(16px + 128px + 32px);
+  top: 116px;
   left: 8px;
+}
+
+@media (min-width: 1024px) {
+  .iconRoot {
+    display: block;
+  }
+  .sidebarIcon {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .icon {
+    width: 18px;
+    height: 18px;
+    padding: 24px;
+  }
+  .main {
+    width: 32px;
+    height: 32px;
+    padding: 40px;
+  }
+  .icon1 {
+    top: 8px;
+    left: 132px;
+  }
+
+  .icon2 {
+    top: 132px;
+    left: 78px;
+  }
+
+  .icon3 {
+    top: 78px;
+    left: 132px;
+  }
+
+  .icon4 {
+    top: 132px;
+    left: 8px;
+  }
+}
+@media (min-width: 1440px) {
+  .icon {
+    width: 24px;
+    height: 24px;
+    padding: 24px;
+  }
+  .main {
+    width: 48px;
+    height: 48px;
+    padding: 55px;
+  }
+  .icon1 {
+    top: 8px;
+    left: 176px;
+  }
+
+  .icon2 {
+    top: 110px;
+    left: 192px;
+  }
+
+  .icon3 {
+    top: 192px;
+    left: 110px;
+  }
+  .icon4 {
+    top: 176px;
+    left: 8px;
+  }
 }

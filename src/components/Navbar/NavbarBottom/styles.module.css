@@ -1,11 +1,29 @@
 .navbarBottom {
+  display: none;
   position: absolute;
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   width: 98dvw;
   height: auto;
-  max-height: 75dvh;
+  max-height: 70dvh;
   z-index: -1;
   pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .navbarBottom {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbarBottom {
+    max-height: 70dvh;
+  }
+}
+@media (min-width: 1440px) {
+  .navbarBottom {
+    max-height: 75dvh;
+  }
 }

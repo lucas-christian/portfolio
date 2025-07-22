@@ -1,25 +1,14 @@
 import { useState } from "react";
 import {
-  faUser,
-  faFolder,
-  faTerminal,
-  faSuitcase,
-  faPhone,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./styles.module.css";
-
+import Link from "next/link";
+import { icons } from "../../../constants/pages";
 
 export const NavbarPages = () => {
   const [mainId, setMainId] = useState(0);
-
-  const icons = [
-    { id: 0, icon: faUser, label: "Sobre mim" },
-    { id: 1, icon: faTerminal, label: "Habilidades" },
-    { id: 2, icon: faFolder, label: "Projetos" },
-    { id: 3, icon: faSuitcase, label: "Experiência Profissional" },
-    { id: 4, icon: faPhone, label: "Contato" }
-  ];
   
   const handleClick = (index: number) => {
     if (mainId === index) return;
@@ -52,15 +41,17 @@ export const NavbarPages = () => {
   return (
     <div className={styles.container}>
       {icons.map((item) => (
-        <div
+        <Link
           key={`icon-left-page-${item.id}`}
           className={`${styles.iconRoot} ${styles[`icon${getRelativeIndex(item.id)}`]}`}
           onClick={() => handleClick(item.id)}
+          href={icons[item.id].page}
           title={item.label}
         >
           <FontAwesomeIcon icon={item.icon} className={`${styles.icon} ${getRelativeIndex(item.id) === 0 ? styles.main : ""}`} />
-        </div>
+        </Link>
       ))}
+      <FontAwesomeIcon icon={faBars} className={`${styles.iconMobile} ${styles.sidebarIcon}`} />
     </div>
   );
 };

@@ -1,6 +1,10 @@
+import { icons } from "../../../constants/pages"
 import styles from "./styles.module.css"
 
-export const PageTitle = () => {
+export const PageTitle = ({ pathname }: { pathname: string; }) => {
+  console.log(pathname)
+  const icon = icons.find(icon => icon.page === pathname)
+  if (!icon) return;
   return (
     <div className={styles.titleRootPos}>
       <div className={styles.titleRoot}>
@@ -17,8 +21,8 @@ export const PageTitle = () => {
             <path d="M13.5 1H1.5L1.5 20.5" stroke="#3CE5FC" strokeWidth="2"/>
           </svg>
         ))}
-        <h2 className={styles.title}>Arquivo de agente</h2>
-        <div className={styles.titleContainer} />
+        <h2 className={styles.title}>{icon.label}</h2>
+        <div className={styles.titleContainer} style={{ width: icon.labelWidth }} />
       </div>
     </div>
   )
