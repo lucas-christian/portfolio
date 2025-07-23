@@ -1,0 +1,22 @@
+.infoRoot {
+  display: flex;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--item-bg);
+  font-size: 13.33px;
+  width: 100%;
+  text-align: justify;
+}
+
+.left {
+  border-left: 4px solid var(--active-border);
+}
+
+.top {
+  border-top: 2px solid var(--active-border);
+}
+
+.property {
+  font-weight: 600;
+}
+

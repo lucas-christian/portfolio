@@ -1,0 +1,89 @@
+.iconMobile {
+  width: 24px;
+  height: 24px;
+  color: var(--text);
+  z-index: 2;
+}
+
+.sidebarIcon {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.sidebarContent {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+.sidebarTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebarItem:hover {
+  color: #0070f3;
+}
+
+.sidebarIconItem {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 1024px) {
+  .sidebarIcon {
+    display: none;
+  }
+}

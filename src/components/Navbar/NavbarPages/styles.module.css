@@ -8,6 +8,7 @@
   position: absolute;
   transition: all 0.3s ease;
   display: none;
+  z-index: 1;
 }
 
 .icon {
@@ -23,18 +24,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   z-index: 1;
-}
-
-.iconMobile {
-  width: 24px;
-  height: 24px;
-  color: var(--text);
-}
-
-.sidebarIcon {
-  position: absolute;
-  top: 8px;
-  left: 12px;
 }
 
 .main {
@@ -74,9 +63,6 @@
 @media (min-width: 1024px) {
   .iconRoot {
     display: block;
-  }
-  .sidebarIcon {
-    display: none;
   }
 }
 @media (min-width: 1280px) {

@@ -9,6 +9,7 @@ import { ThemeProvider } from "@context/ThemeContext/ThemeProvider";
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Navbar } from "../components/Navbar";
+import { NavbarProvider } from "@context/NavbarContext/NavbarProvider";
 config.autoAddCss = false
 
 export const metadata: Metadata = {
@@ -43,12 +44,14 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable}`}>
-        <LangProvider language={lang as Lang}>
-          <ThemeProvider>
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </LangProvider>
+        <NavbarProvider>
+          <LangProvider language={lang as Lang}>
+            <ThemeProvider>
+              <Navbar />
+              {children}
+            </ThemeProvider>
+          </LangProvider>
+        </NavbarProvider>
       </body>
     </html>
   );
