@@ -1,4 +1,5 @@
 import { icons } from "../../../constants/pages"
+import { Text } from "../../Text";
 import styles from "./styles.module.css"
 
 export const PageTitle = ({ pathname }: { pathname: string; }) => {
@@ -21,7 +22,7 @@ export const PageTitle = ({ pathname }: { pathname: string; }) => {
             <path d="M13.5 1H1.5L1.5 20.5" stroke="#3CE5FC" strokeWidth="2"/>
           </svg>
         ))}
-        <h2 className={styles.title}>{icon.label}</h2>
+        <Text size="lg" family="orbitron" className={styles.title} asChild><h2>{icon.label}</h2></Text>
         <div className={styles.titleContainer} style={{ width: icon.labelWidth }} />
       </div>
     </div>

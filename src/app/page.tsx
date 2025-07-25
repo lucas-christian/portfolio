@@ -9,6 +9,8 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavbar } from "@hooks/useNavbar";
 import { icons } from "../constants/pages";
+import Link from "next/link";
+import { Text } from "../components/Text";
 
 export default function Home() {
   const { handleNavigate } = useNavbar();
@@ -54,7 +56,9 @@ export default function Home() {
           <Image src="/pt-BR.svg" alt="Imagem do Dev Luch" width={200} height={312} className={styles.myImage} />
           <div className={styles.aboutMeRoot}>
             <div className={styles.aboutMeTop}>
-              <h3>Lucas Christian</h3>
+              <Text family="orbitron" size="lg" asChild>
+                <h3>Lucas Christian</h3>
+              </Text>
               <div className={styles.aboutMeTopRight}>
                 <FontAwesomeIcon style={{ width: "16px", height: "auto", color: "var(--text)", cursor: "pointer" }} icon={faShareNodes} onClick={handleSharePortfolio} />
                 <div className={styles.rank}><span>B-</span></div>
@@ -67,14 +71,15 @@ export default function Home() {
             </div>
             <div className={styles.pageButtons}>
               {links.map(({ icon, id, label, page }) => (
-                <Button
+                <Button.Root
                   key={`button-icon-${id}`}
-                  href={page ? page : undefined}
-                  text={label}
-                  icon={icon}
-                  iconWidth="20px"
-                  target="_blank"
-                />
+                  buttonStyle="externalLink"
+                  asChild
+                >
+                  <Link href={page} target="_blank">
+                    <Button.Content text={label} icon={icon} iconWidth="20px" />
+                  </Link>
+                </Button.Root>
               ))}
             </div>
             <div className={styles.devStatus}>
@@ -93,12 +98,16 @@ export default function Home() {
         <Info borderFrom="top" fontSize="16px" value="Iniciei no mundo do desenvolvimento web em 2022, Já atuei em projetos onde tive contato com serviços de cobrança, envio de e-mails, pude também trabalhar na automação de atendimentos através do WhatsApp e me aventurei no uso de IoT para automações em testes de estufa." />
         <div className={`${styles.pageButtons} ${styles.mobileHide}`}>
           {buttons.map(({ icon, id, label, page }) => (
-            <Button
+            <Button.Root
               key={`button-icon-${id}`}
               onClick={() => icons.find(icon => icon.page === page) ? handleNavigate(id) : undefined}
-              text={label}
-              icon={icon}
-            />
+              buttonStyle="internalLink"
+            >
+              <Button.Content
+                text={label}
+                icon={icon}
+              />
+            </Button.Root>
           ))}
         </div>
       </Container>

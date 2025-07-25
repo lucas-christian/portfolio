@@ -1,6 +1,5 @@
 .title {
-  font-family: var(--font-audiowide);
-  font-size: 28px;
+  font-size: 24px!important;
   color: var(--text);
   position: absolute;
   top: 12px;
@@ -11,14 +10,14 @@
 @media (min-width: 1024px) {
   .title {
     top: 4px;
-    font-size: 32px;
+    font-size: 32px!important;
   }
 }
 
 @media (min-width: 1280px) {
   .title {
     top: 0;
-    font-size: 48px;
+    font-size: 48px!important;
   }
 }
 

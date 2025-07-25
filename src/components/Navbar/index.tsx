@@ -7,6 +7,7 @@ import { NavbarRightIcons } from "./NavbarRightIcons"
 import styles from "./styles.module.css"
 import { PageTitle } from "./PageTitle"
 import { usePathname } from "next/navigation";
+import { Text } from "../Text";
 
 
 export const Navbar = () => {
@@ -14,7 +15,7 @@ export const Navbar = () => {
   return (
     <Fragment>
       <NavbarPages />
-      <h1 className={styles.title}>Dev Luch</h1>
+      <Text className={styles.title} size="xl" family="audiowide" asChild><h1>Dev Luch</h1></Text>
       <PageTitle pathname={pathname} />
       <NavbarRightIcons />
       <NavbarTop />

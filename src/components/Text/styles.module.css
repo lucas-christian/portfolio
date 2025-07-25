@@ -1,0 +1,66 @@
+.text[data-family="inter"] {
+  font-family: var(--font-inter);
+}
+.text[data-family="orbitron"] {
+  font-family: var(--font-orbitron);
+}
+.text[data-family="audiowide"] {
+  font-family: var(--font-audiowide);
+}
+
+.text[data-align="center"] {
+  text-align: center;
+  overflow-wrap: break-word;
+}
+.text[data-align="justify"] {
+  text-align: justify;
+  overflow-wrap: break-word;
+}
+.text[data-align="left"] {
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.text[data-size="xl"] {
+  font-size: var(--font-3xl);
+}
+.text[data-size="lg"] {
+  font-size: var(--font-lg);
+}
+.text[data-size="md"] {
+  font-size: var(--font-md);
+}
+.text[data-size="default"] {
+  font-size: var(--font-default);
+}
+.text[data-size="sm"] {
+  font-size: var(--font-sm);
+}
+.text[data-size="xs"] {
+  font-size: var(--font-xs);
+}
+.text[data-size="xxs"] {
+  font-size: var(--font-xxs);
+}
+.text[data-size="xxs"] {
+  font-size: var(--font-xxs);
+}
+
+.text[data-weight="thin"] {
+  font-weight: 100;
+}
+.text[data-weight="light"] {
+  font-weight: 300;
+}
+.text[data-weight="regular"] {
+  font-weight: 400;
+}
+.text[data-weight="medium"] {
+  font-weight: 500;
+}
+.text[data-weight="bold"] {
+  font-weight: 700;
+}
+.text[data-weight="black"] {
+  font-weight: 900;
+}

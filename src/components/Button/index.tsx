@@ -1,22 +1,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
-import { HTMLAttributeAnchorTarget } from "react";
+import { CSSProperties, ReactNode } from "react";
 import styles from "./styles.module.css";
+import { Slot } from "@radix-ui/react-slot";
+import { Text } from "../Text";
 
-export const Button = ({ href, text, icon, onClick, target, iconWidth }: { href?: string; text: string; icon?: any; onClick?: () => void; target?: HTMLAttributeAnchorTarget; iconWidth?: string; }) => {
-  if (href) {
-    return (
-      <Link href={href} target={target} className={`${styles.sharedStyles} ${styles.urlButton}`}>
-        {icon && <FontAwesomeIcon icon={icon} style={{ width: iconWidth || "16px", height: "auto" }} />}
-        <span style={{ width: "max-content" }}>{text}</span>
-      </Link>
-    )
-  }
+const ButtonRoot = ({ onClick, asChild, buttonStyle="button", style, children }: {
+  onClick?: () => void;
+  children: ReactNode;
+  asChild?: boolean;
+  buttonStyle?: "externalLink" | "internalLink" | "outlineButton" | "button" | "smallTecnology";
+  style?: CSSProperties;
+}) => {
+  const Component = asChild ? Slot : "button";
+
   return (
-    <button onClick={onClick} className={`${styles.sharedStyles} ${styles.button}`}>
-      {icon && <FontAwesomeIcon icon={icon} style={{ width: iconWidth || "16px", height: "auto" }} />}
-      <span style={{ width: "max-content" }}>{text}</span>
-    </button>
+    <Component onClick={onClick} className={`${styles.sharedStyles} ${styles[buttonStyle]}`} style={style}>
+      {children}
+    </Component>
   );
+}
+
+const ButtonContent = ({ text, icon, iconWidth }: { text: string; icon?: any; iconWidth?: string; }) => {
+  return (
+    <>
+      {icon && <FontAwesomeIcon icon={icon} style={{ width: iconWidth || "16px", height: "auto" }} />}
+      <Text size="sm" style={{ width: "max-content" }} asChild>  
+        <span>{text}</span>
+      </Text>
+    </>
+  )
+}
+
+export const Button = {
+  Root: ButtonRoot,
+  Content: ButtonContent
 }

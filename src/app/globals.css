@@ -10,6 +10,16 @@
   --glowing-border: #00F0FF;
   --container-bg: #0A0F1A;
   --item-bg: #081C3F;
+  
+  --font-3xl: 2.488125rem;
+  --font-2xl: 2.07375rem;
+  --font-xl: 1.728125rem;
+  --font-lg: 1.44rem;
+  --font-md: 1.2rem;
+  --font-default: 1rem;
+  --font-sm: 0.833125rem;
+  --font-xs: 0.694375rem;
+  --font-2xs: 0.57875rem;
 }
 
 [data-theme="dark"] {

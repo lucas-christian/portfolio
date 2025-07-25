@@ -72,14 +72,12 @@
   align-items: center;
 }
 
-@media (min-height: 1024px) {
-  .myImage {
-    display: block;
-  }
+@media (min-width: 1024px) {
   .page {
     max-height: 100dvh;
-    padding: 0px 27%;
+    padding: 0px 15%;
     justify-content: center;
+    margin-top: 48px;
   }
   .pageButtons {
     flex-direction: row;
@@ -91,5 +89,21 @@
   .devStatusLine {
     flex-direction: row;
     gap: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page {
+    margin-top: 24px;
+  }
+  .myImage {
+    display: block;
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page {
+    padding: 0px 27%;
   }
 }

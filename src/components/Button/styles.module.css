@@ -13,14 +13,32 @@
   cursor: pointer;
 }
 
-.urlButton {
+.externalLink {
   border: 4px solid var(--glowing-border);
   border-top: 0;
   border-bottom: 0;
 }
 
-.button {
+.internalLink {
   border: 4px solid var(--glowing-border);
   border-top: 1px solid var(--glowing-border);
   border-bottom: 1px solid var(--glowing-border);
+}
+
+.outlineButton {
+  border: 1px solid var(--glowing-border);
+  color: var(--glowing-border);
+  background-color: var(--container-bg);
+}
+
+.button {
+  border-left: 4px solid var(--glowing-border);
+}
+
+.smallTecnology {
+  background-color: #111111;
+  border: 1px solid var(--glowing-border);
+  color: var(--glowing-border);
+  width: max-content;
+  padding: 4px 8px;
 }
