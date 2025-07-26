@@ -1,0 +1,17 @@
+.area {
+  background-color: transparent;
+  color: var(--text);
+  width: 100%;
+  padding: 12px;
+  background-color: var(--item-bg);
+  border: 1px solid var(--glowing-border);
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  resize: none;
+}
+
+.area::placeholder {
+  color: var(--columbia-blue);
+}

@@ -10,7 +10,8 @@
   --glowing-border: #00F0FF;
   --container-bg: #0A0F1A;
   --item-bg: #081C3F;
-  
+  --columbia-blue: #C6EAF9;
+
   --font-3xl: 2.488125rem;
   --font-2xl: 2.07375rem;
   --font-xl: 1.728125rem;
@@ -34,6 +35,7 @@
   --glowing-border: #00F0FF;
   --container-bg: #0A0F1A;
   --item-bg: #081C3F;
+  --columbia-blue: #C6EAF9;
 }
 
 html,
@@ -68,5 +70,6 @@ a {
 @media (min-width: 1024px) {
   body {
     max-height: 100dvh;
+    overflow: hidden;
   }
 }

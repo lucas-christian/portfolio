@@ -3,6 +3,7 @@
   padding: 8px 16px;
   gap: 8px;
   background-color: var(--item-bg);
+  border: none;
   border-radius: 8px;
   font-size: 13.33px;
   font-weight: 600;
@@ -11,6 +12,11 @@
   color: var(--text);
   width: 100%;
   cursor: pointer;
+}
+
+.form {
+  color: #000000;
+  background-color: var(--glowing-border);
 }
 
 .externalLink {
