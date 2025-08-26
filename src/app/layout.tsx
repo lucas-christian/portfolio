@@ -10,6 +10,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Navbar } from "../components/Navbar";
 import { NavbarProvider } from "@context/NavbarContext/NavbarProvider";
+import Head from "next/head";
 config.autoAddCss = false
 
 export const metadata: Metadata = {
@@ -43,6 +44,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
+      <Head>
+        <meta name="google-adsense-account" content="ca-pub-7052672921293029" />
+      </Head>
       <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable}`}>
         <NavbarProvider>
           <LangProvider language={lang as Lang}>
