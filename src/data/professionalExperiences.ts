@@ -13,17 +13,6 @@ export interface ProfessionalExperience {
 
 export const professionalExperiences: ProfessionalExperience[] = [
   {
-    id: "mstore-digital",
-    title: "MStore Digital LTDA",
-    description: "experience.mstore-digital.description",
-    image: "/mstore-logo.svg",
-    imageAlt: "Logo MStore Digital LTDA",
-    technologies: ["Next.js", "React", "Node.js", "TypeScript", "Tsoa"],
-    responsibilities: "experience.mstore-digital.responsibilities",
-    githubUrl: "https://github.com/mstore-digital",
-    date: "Jan. de 2024 - Jan. de 2025"
-  },
-  {
     id: "soublox",
     title: "Soublox",
     description: "experience.soublox.description",
@@ -34,5 +23,16 @@ export const professionalExperiences: ProfessionalExperience[] = [
     websiteUrl: "https://soublox.com",
     githubUrl: "https://github.com/soublox",
     date: "Set. de 2025 - Atualmente"
-  }
+  },
+  {
+    id: "mstore-digital",
+    title: "MStore Digital LTDA",
+    description: "experience.mstore-digital.description",
+    image: "/mstore-logo.svg",
+    imageAlt: "Logo MStore Digital LTDA",
+    technologies: ["Next.js", "React", "Node.js", "TypeScript", "Tsoa"],
+    responsibilities: "experience.mstore-digital.responsibilities",
+    githubUrl: "https://github.com/mstore-digital",
+    date: "Jan. de 2024 - Jan. de 2025"
+  },
 ];
