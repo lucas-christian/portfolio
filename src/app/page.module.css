@@ -10,10 +10,6 @@
   align-items: center;
 }
 
-.myImage {
-  display: none;
-}
-
 .aboutMeRoot {
   display: flex;
   flex-direction: column;
