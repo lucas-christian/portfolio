@@ -6,11 +6,14 @@ import { Text } from "../../components/Text";
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
 import { professionalExperiences, ProfessionalExperience } from "../../data/professionalExperiences";
+import { useLang } from "../../hooks/useLang";
 import styles from "../page.module.css";
 import { faGlobe, faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { Project } from "../../data/projects";
 
 export default function ProfessionalExperience() {
+  const { t } = useLang();
+  
   const renderExperience = (experience: ProfessionalExperience) => (
       <Container flexDirection="column">
         <div className={styles.pageButtons}>
@@ -31,9 +34,9 @@ export default function ProfessionalExperience() {
               </Text>
             )}
             <Text family="inter" align="justify">
-              {experience.description}
+              {t(experience.description)}
             </Text>
-            <Text family="orbitron" style={{ color: "var(--glowing-border)"}}>Tecnologias</Text>
+            <Text family="orbitron" style={{ color: "var(--glowing-border)"}}>{t("experience.technologies")}</Text>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "16px" }}>
               {experience.technologies.map((tech, index) => (
                 <Button.Root key={index} buttonStyle="smallTecnology">
@@ -42,8 +45,8 @@ export default function ProfessionalExperience() {
               ))}
             </div>
             <Text family="orbitron" align="justify" style={{ color: "var(--glowing-border)"}}>
-              Responsabilidades: <Text style={{ color: "var(--text)"}} asChild>
-                <span>{experience.responsibilities}</span>
+              {t("experience.responsibilities")}: <Text style={{ color: "var(--text)"}} asChild>
+                <span>{t(experience.responsibilities)}</span>
               </Text>
             </Text>
           </div>
@@ -55,7 +58,7 @@ export default function ProfessionalExperience() {
                 <Button.Content
                   icon={faPaperclip}
                   iconWidth="20px"
-                  text="Ver empresa no Github"
+                  text={t("experience.view-github")}
                 />
               </Link>
             </Button.Root>
@@ -66,7 +69,7 @@ export default function ProfessionalExperience() {
                 <Button.Content
                   icon={faGlobe}
                   iconWidth="20px"
-                  text="Ver site da empresa"
+                  text={t("experience.view-website")}
                 />
               </Link>
             </Button.Root>

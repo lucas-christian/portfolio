@@ -4,9 +4,11 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { icons } from "../../../constants/pages";
 import styles from "./styles.module.css";
 import { useNavbar } from "@hooks/useNavbar";
+import { useLang } from "@hooks/useLang";
 
 export const NavbarMobile = () => {
   const { handleNavigate } = useNavbar();
+  const { t } = useLang();
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -20,7 +22,7 @@ export const NavbarMobile = () => {
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.sidebarContent}>
           <Dialog.Title className={styles.sidebarTitle}>
-            Menu
+            {t("nav.menu")}
           </Dialog.Title>
           <div className={styles.sidebarHeader}>
             <Dialog.Close asChild>
@@ -39,7 +41,7 @@ export const NavbarMobile = () => {
                 }}
               >
                 <FontAwesomeIcon icon={item.icon} className={styles.sidebarIconItem} />
-                <span>{item.label}</span>
+                <span>{t(item.label)}</span>
               </div>
             ))}
           </nav>

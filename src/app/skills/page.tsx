@@ -1,8 +1,11 @@
 "use client";
 import { Text } from "../../components/Text";
+import { useLang } from "../../hooks/useLang";
 import styles from "../page.module.css";
 
 export default function Skills() {
+  const { t } = useLang();
+  
   return (
     <div className={styles.page} style={{ 
       display: "flex", 
@@ -20,7 +23,7 @@ export default function Skills() {
           fontSize: "2.5rem"
         }}
       >
-        Em breve
+        {t("skills.coming-soon")}
       </Text>
     </div>
   );

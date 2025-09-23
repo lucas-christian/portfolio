@@ -6,11 +6,14 @@ import { Text } from "../../components/Text";
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
 import { projects, Project } from "../../data/projects";
+import { useLang } from "../../hooks/useLang";
 import styles from "../page.module.css";
 import { faGlobe, faPaperclip, faCode, faUser } from "@fortawesome/free-solid-svg-icons";
 import { ProfessionalExperience } from "../../data/professionalExperiences";
 
 export default function Projects() {
+  const { t } = useLang();
+  
   const renderProject = (project: Project) => (
     <Container flexDirection="column">
       <div className={styles.pageButtons}>
@@ -19,24 +22,24 @@ export default function Projects() {
             {project.title}
           </Text>
 
-          <div style={{ display: "flex", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
-            <Button.Root buttonStyle="smallTecnology">
-              <Button.Content
-                icon={project.projectType === "open-source" ? faCode : faUser}
-                iconWidth="12px"
-                text={project.projectType === "open-source" ? "Open Source" : "Projeto Pessoal"}
-              />
-            </Button.Root>
-            <Button.Root buttonStyle="smallTecnology">
-              <Button.Content text={project.role} />
-            </Button.Root>
-          </div>
+            <div style={{ display: "flex", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
+              <Button.Root buttonStyle="smallTecnology">
+                <Button.Content
+                  icon={project.projectType === "open-source" ? faCode : faUser}
+                  iconWidth="12px"
+                  text={project.projectType === "open-source" ? t("projects.open-source") : t("projects.personal")}
+                />
+              </Button.Root>
+              <Button.Root buttonStyle="smallTecnology">
+                <Button.Content text={t(project.role)} />
+              </Button.Root>
+            </div>
 
           <Text family="inter" align="justify">
-            {project.description}
+            {t(project.description)}
           </Text>
 
-          <Text family="orbitron" style={{ color: "var(--glowing-border)" }}>Tecnologias</Text>
+          <Text family="orbitron" style={{ color: "var(--glowing-border)" }}>{t("projects.technologies")}</Text>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "16px" }}>
             {project.technologies.map((tech, index) => (
               <Button.Root key={index} buttonStyle="smallTecnology">
@@ -46,8 +49,8 @@ export default function Projects() {
           </div>
 
           <Text family="orbitron" align="justify" style={{ color: "var(--glowing-border)" }}>
-            Responsabilidades: <Text style={{ color: "var(--text)" }} asChild>
-              <span>{project.responsibilities}</span>
+            {t("projects.responsibilities")}: <Text style={{ color: "var(--text)" }} asChild>
+              <span>{t(project.responsibilities)}</span>
             </Text>
           </Text>
         </div>
@@ -60,22 +63,22 @@ export default function Projects() {
         {project.githubUrl && (
           <Button.Root buttonStyle="outlineButton" asChild>
             <Link href={project.githubUrl} target="_blank">
-              <Button.Content
-                icon={faPaperclip}
-                iconWidth="20px"
-                text="Ver no Github"
-              />
+                <Button.Content
+                  icon={faPaperclip}
+                  iconWidth="20px"
+                  text={t("projects.view-github")}
+                />
             </Link>
           </Button.Root>
         )}
         {project.websiteUrl && (
           <Button.Root buttonStyle="outlineButton" asChild>
             <Link href={project.websiteUrl} target="_blank">
-              <Button.Content
-                icon={faGlobe}
-                iconWidth="20px"
-                text="Ver projeto"
-              />
+                <Button.Content
+                  icon={faGlobe}
+                  iconWidth="20px"
+                  text={t("projects.view-project")}
+                />
             </Link>
           </Button.Root>
         )}
