@@ -22,7 +22,7 @@ export default function ProfessionalExperience() {
             alt={experience.imageAlt} 
             width={400} 
             height={300} 
-            style={{ width: "max-content", height: "auto", objectFit: "contain" }} 
+            style={{ width: "350px", height: "auto", objectFit: "contain" }} 
           />
           <div className={styles.aboutMeRoot}>
             <Text family="orbitron" size="lg" weight="bold" style={{ color: "var(--glowing-border)"}}>
