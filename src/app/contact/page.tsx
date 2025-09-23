@@ -13,7 +13,7 @@ export default function Contact() {
   const buttons = [
     { id: 1, icon: faEnvelope, label: "E-mail", page: "mailto:lucas.christian.programmer@gmail.com" },
     { id: 2, icon: faLinkedin, label: "LinkedIn", page: "https://www.linkedin.com/in/lucas-christian-226846245/", target: "_blank" },
-    { id: 3, icon: faWhatsapp, label: "WhatsApp", page: "https://wa.me/qr/WLYIDCRPOPKVE1", target: "_blank" },
+    { id: 3, icon: faWhatsapp, label: "WhatsApp", page: "https://wa.me/message/VLJUSJK2WXJBJ1", target: "_blank" },
     { id: 4, icon: faGithub, label: "Github", page: "https://github.com/Lucas-Christian", target: "_blank" }
   ]; 
   return (
@@ -30,7 +30,7 @@ export default function Contact() {
           </Input.Root>
           <Select />
           <TextArea placeholder="Digite a sua mensagem" rows={12} />
-          <Button.Root buttonStyle="form">
+          <Button.Root buttonStyle="form" disabled>
             <Button.Content
               text="Enviar mensagem"
             />

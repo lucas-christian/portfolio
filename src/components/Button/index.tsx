@@ -5,17 +5,18 @@ import styles from "./styles.module.css";
 import { Slot } from "@radix-ui/react-slot";
 import { Text } from "../Text";
 
-const ButtonRoot = ({ onClick, asChild, buttonStyle = "button", style, children }: {
+const ButtonRoot = ({ onClick, asChild, buttonStyle = "button", style, disabled, children }: {
   onClick?: () => void;
   children: ReactNode;
   asChild?: boolean;
+  disabled?: boolean;
   buttonStyle?: "externalLink" | "internalLink" | "outlineButton" | "button" | "smallTecnology" | "form";
   style?: CSSProperties;
 }) => {
   const Component = asChild ? Slot : "button";
 
   return (
-    <Component onClick={onClick} className={`${styles.sharedStyles} ${styles[buttonStyle]}`} style={style}>
+    <Component onClick={onClick} className={`${styles.sharedStyles} ${disabled ? styles.disabled : ""} ${styles[buttonStyle]}`} style={style}>
       {children}
     </Component>
   );

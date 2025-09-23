@@ -1,0 +1,117 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.carouselContent {
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--glowing-border);
+  border: 2px solid var(--glowing-border);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 20;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navButton:hover {
+  background: transparent;
+  color: var(--glowing-border);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navButton:first-of-type {
+  left: -25px;
+}
+
+.navButton:last-of-type {
+  right: -25px;
+}
+
+.chevronIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.counter {
+  color: var(--text);
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.activeDot {
+  background: var(--glowing-border);
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    padding: 0 20px;
+  }
+  
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navButton:first-of-type {
+    left: -20px;
+  }
+  
+  .navButton:last-of-type {
+    right: -20px;
+  }
+  
+  .chevronIcon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .indicators {
+    margin-top: 15px;
+  }
+}
