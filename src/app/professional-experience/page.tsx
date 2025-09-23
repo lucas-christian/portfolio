@@ -5,7 +5,7 @@ import { Container } from "../../components/Container";
 import { Text } from "../../components/Text";
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
-import { professionalExperiences, ProfessionalExperience } from "../../data/professionalExperiences";
+import { professionalExperiences, ProfessionalExperience as ProfessionalExperienceType } from "../../data/professionalExperiences";
 import { useLang } from "../../hooks/useLang";
 import styles from "../page.module.css";
 import { faGlobe, faPaperclip } from "@fortawesome/free-solid-svg-icons";
@@ -14,7 +14,7 @@ import { Project } from "../../data/projects";
 export default function ProfessionalExperience() {
   const { t } = useLang();
   
-  const renderExperience = (experience: ProfessionalExperience) => (
+  const renderExperience = (experience: ProfessionalExperienceType) => (
       <Container flexDirection="column">
         <div className={styles.pageButtons}>
           <Image 
@@ -82,7 +82,7 @@ export default function ProfessionalExperience() {
     <div className={styles.page} style={{ padding: "0px 18%" }}>
       <Carousel 
         items={professionalExperiences} 
-        renderItem={renderExperience as (item: ProfessionalExperience | Project, index: number) => React.ReactNode}
+        renderItem={renderExperience as (item: ProfessionalExperienceType | Project, index: number) => React.ReactNode}
       />
     </div>
   );
