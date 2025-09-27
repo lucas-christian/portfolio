@@ -5,9 +5,13 @@ import { Container } from "../Container";
 import { Text } from "../Text";
 import Image from "next/image";
 import Link from "next/link";
+import { useLang } from "../../hooks/useLang";
+import { FloatingSettings } from "../FloatingSettings";
 import styles from "./styles.module.css";
 
 export const HeroSection = () => {
+  const { t } = useLang();
+  
   const socialLinks = [
     { id: 0, icon: () => <Image src="/icons/github.svg" alt="GitHub" width={24} height={24} className={styles.socialIcon} />, label: "GitHub", url: "https://github.com/Lucas-Christian" },
     { id: 1, icon: () => <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className={styles.socialIcon} />, label: "LinkedIn", url: "https://www.linkedin.com/in/lucas-christian-226846245/" },
@@ -40,7 +44,7 @@ export const HeroSection = () => {
             {/* Imagem do Dev Luch */}
             <div className={styles.imageWrapper}>
               <Image
-                src="/pt-BR.svg"
+                src="/luch.webp"
                 alt="Dev Luch - Desenvolvedor Full Stack"
                 width={200}
                 height={200}
@@ -56,12 +60,12 @@ export const HeroSection = () => {
         <div className={styles.titleSection}>
           <div className={styles.titleWrapper}>
             <Text family="orbitron" size="xl" className={styles.mainTitle}>
-              DEV LUCH
+              {t("home.title")}
             </Text>
             <div className={styles.titleGlow}></div>
           </div>
-          <Text family="orbitron" size="lg" className={styles.subtitle}>
-            DESENVOLVEDOR DE SOFTWARE
+          <Text family="orbitron" size="lg" align="center" className={styles.subtitle}>
+            {t("home.subtitle")}
           </Text>
         </div>
         <div className={styles.descriptionSection}>
@@ -69,13 +73,10 @@ export const HeroSection = () => {
           <div className={styles.descriptionCard}>
             <div className={styles.descriptionHeader}>
               <Star size={16} className={styles.descriptionIcon} />
-              <span>MISSÃO</span>
+              <span>{t("home.mission")}</span>
             </div>
             <p className={styles.descriptionText}>
-              Desenvolvedor de Software especializado em criar soluções inovadoras e escaláveis.
-              Experiência sólida em automação, IoT, sistemas de cobrança e integrações avançadas.
-              Atualmente em missão ativa na Soublox, desenvolvendo soluções backend de alta performance
-              e arquiteturas robustas para o futuro da tecnologia.
+              {t("home.description")}
             </p>
           </div>
 
@@ -87,20 +88,20 @@ export const HeroSection = () => {
               <div className={styles.card}>
                 <div className={styles.cardHeader}>
                   <User size={16} className={styles.cardIcon} />
-                  <span>STATUS</span>
+                  <span>{t("home.status")}</span>
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.statItem}>
-                    <span className={styles.statLabel}>Idade:</span>
-                    <span className={styles.statValue}>20 anos</span>
+                    <span className={styles.statLabel}>{t("home.age")}:</span>
+                    <span className={styles.statValue}>{t("home.ageValue")}</span>
                   </div>
                   <div className={styles.statItem}>
-                    <span className={styles.statLabel}>Profissão:</span>
-                    <span className={styles.statValue}>Desenvolvedor de Software</span>
+                    <span className={styles.statLabel}>{t("home.profession")}:</span>
+                    <span className={styles.statValue}>{t("home.professionValue")}</span>
                   </div>
                   <div className={styles.statItem}>
-                    <span className={styles.statLabel}>Formação:</span>
-                    <span className={styles.statValue}>Fatec Cotia</span>
+                    <span className={styles.statLabel}>{t("home.education")}:</span>
+                    <span className={styles.statValue}>{t("home.educationValue")}</span>
                   </div>
                 </div>
               </div>
@@ -108,25 +109,25 @@ export const HeroSection = () => {
               <div className={styles.card}>
                 <div className={styles.cardHeader}>
                   <Code size={16} className={styles.cardIcon} />
-                  <span>MÉTRICAS</span>
+                  <span>{t("home.metrics")}</span>
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.metricGrid}>
                     <div className={styles.metric}>
                       <span className={styles.metricNumber}>888</span>
-                      <span className={styles.metricLabel}>Commits</span>
+                      <span className={styles.metricLabel}>{t("home.commits")}</span>
                     </div>
                     <div className={styles.metric}>
                       <span className={styles.metricNumber}>15</span>
-                      <span className={styles.metricLabel}>PRs</span>
+                      <span className={styles.metricLabel}>{t("home.prs")}</span>
                     </div>
                     <div className={styles.metric}>
                       <span className={styles.metricNumber}>10</span>
-                      <span className={styles.metricLabel}>Stars</span>
+                      <span className={styles.metricLabel}>{t("home.stars")}</span>
                     </div>
                     <div className={styles.metric}>
                       <span className={styles.metricNumber}>13</span>
-                      <span className={styles.metricLabel}>Contribuições</span>
+                      <span className={styles.metricLabel}>{t("home.contributions")}</span>
                     </div>
                   </div>
                 </div>
@@ -138,7 +139,7 @@ export const HeroSection = () => {
           <div className={styles.socialSection}>
             <div className={styles.socialTitle}>
               <Terminal size={16} className={styles.socialTitleIcon} />
-              <span>CONEXÕES</span>
+              <span>{t("home.connections")}</span>
             </div>
             <div className={styles.socialLinks}>
               {socialLinks.map(({ icon: Icon, id, label, url }) => (
@@ -154,6 +155,9 @@ export const HeroSection = () => {
           </div>
         </div>
       </Container>
+      
+      {/* Botão de configurações flutuante */}
+      <FloatingSettings />
     </section>
   );
 };

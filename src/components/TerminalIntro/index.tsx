@@ -1,21 +1,25 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Terminal, Play } from "lucide-react";
+import { useLang } from "../../hooks/useLang";
 import styles from "./styles.module.css";
 
 interface TerminalIntroProps {
   onComplete: () => void;
 }
 
-const terminalLines = [
-  "> Initializing Dev Luch System...",
-  "> Authentication successful",
-  "> Connecting to Soublox servers...",
-  "> Mission status: ACTIVE",
-  "> Welcome, Agent Luch",
-];
-
 export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
+  const { t } = useLang();
+  
+  const terminalLines = useMemo(() => [
+    t("terminal.lines.0"),
+    t("terminal.lines.1"),
+    t("terminal.lines.2"),
+    t("terminal.lines.3"),
+    t("terminal.lines.4"),
+    t("terminal.lines.5"),
+    t("terminal.lines.6")
+  ], [t]);
   const [currentText, setCurrentText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -74,7 +78,7 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
         setIsTyping(false);
       }, 1000);
     }
-  }, [currentLine, onComplete, isMounted]);
+  }, [currentLine, onComplete, isMounted, terminalLines]);
 
   return (
     <div className={styles.terminalIntro}>
@@ -104,13 +108,13 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
             </div>
             <div className={styles.terminalTitle}>
               <Terminal size={16} />
-              <span>Dev Luch Terminal</span>
+              <span>{t("terminal.title")}</span>
             </div>
           </div>
           
           <div className={styles.terminalBody}>
             <div className={styles.terminalContent}>
-              {terminalLines.slice(0, currentLine).map((line, index) => (
+              {terminalLines.slice(0, currentLine).map((line, index: number) => (
                 <div key={index} className={styles.terminalLine}>
                   <span className={styles.prompt}>&gt;</span>
                   <span className={styles.command}>{line.substring(2)}</span>
@@ -128,7 +132,7 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
               {!isTyping && (
                 <div className={styles.terminalLine}>
                   <span className={styles.prompt}>&gt;</span>
-                  <span className={styles.success}>System ready. Press any key to continue...</span>
+                  <span className={styles.success}>{t("terminal.systemReady")}</span>
                 </div>
               )}
             </div>
@@ -139,7 +143,7 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
           <div className={styles.enterButton}>
             <button onClick={onComplete} className={styles.enterBtn}>
               <Play size={16} />
-              <span>ENTER SYSTEM</span>
+              <span>{t("terminal.enterSystem")}</span>
             </button>
           </div>
         )}

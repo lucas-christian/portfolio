@@ -9,9 +9,38 @@ export const ptBR = {
   },
 
   home: {
-    title: "Desenvolvedor Full Stack",
-    subtitle: "Criando soluções inovadoras com tecnologia de ponta",
-    description: "Sou um desenvolvedor apaixonado por criar soluções que fazem a diferença. Especializado em desenvolvimento web e mobile, sempre buscando aprender novas tecnologias e enfrentar novos desafios."
+    title: "DEV LUCH",
+    subtitle: "DESENVOLVEDOR DE SOFTWARE",
+    description: "Desenvolvedor de Software especializado em criar soluções inovadoras e escaláveis. Experiência sólida em automação, IoT, sistemas de cobrança e integrações avançadas. Atualmente em missão ativa na Soublox, desenvolvendo soluções backend de alta performance e arquiteturas robustas para o futuro da tecnologia.",
+    mission: "MISSÃO",
+    status: "STATUS",
+    metrics: "MÉTRICAS",
+    connections: "CONEXÕES",
+    age: "Idade",
+    profession: "Profissão",
+    education: "Formação",
+    ageValue: "20 anos",
+    professionValue: "Desenvolvedor de Software",
+    educationValue: "Fatec Cotia",
+    commits: "Commits",
+    prs: "PRs",
+    stars: "Stars",
+    contributions: "Contribuições"
+  },
+
+  terminal: {
+    title: "Dev Luch Terminal",
+    lines: {
+      "0": "> Inicializando Sistema Dev Luch...",
+      "1": "> Carregando perfil do desenvolvedor...",
+      "2": "> Conectando aos servidores Soublox...",
+      "3": "> Autenticação bem-sucedida",
+      "4": "> Status da missão: ATIVA",
+      "5": "> Bem-vindo, Agente Luch",
+      "6": "> Sistema pronto para deploy"
+    },
+    enterSystem: "ENTRAR NO SISTEMA",
+    systemReady: "Sistema pronto. Pressione qualquer tecla para continuar..."
   },
 
   experience: {

@@ -125,7 +125,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
-  animation: titleFloat 3s ease-in-out infinite alternate, neonPulse 2s ease-in-out infinite;
+  animation: titleFloat 3s ease-in-out infinite alternate, neonPulse 10s ease-in-out infinite;
   position: relative;
   z-index: 2;
 }
@@ -139,7 +139,7 @@
   background: linear-gradient(135deg, var(--electric-blue), var(--glowing-border));
   filter: blur(20px);
   opacity: 0.6;
-  animation: glowPulse 2s ease-in-out infinite alternate;
+  animation: glowPulse 10s ease-in-out infinite alternate;
   z-index: 1;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .badgeIcon {
-  animation: rocketPulse 1.5s ease-in-out infinite;
+  animation: rocketPulse 10s ease-in-out infinite;
 }
 
 /* === SEÇÃO DA IMAGEM === */
@@ -264,7 +264,7 @@
   box-shadow: 
     0 0 30px rgba(0, 240, 255, 0.6),
     0 0 60px rgba(0, 240, 255, 0.3);
-  animation: imagePulse 3s ease-in-out infinite;
+  animation: imagePulse 10s ease-in-out infinite;
   transition: all 0.3s ease;
   object-fit: cover;
 }
@@ -285,7 +285,7 @@
   background: radial-gradient(circle, var(--glowing-border), transparent 70%);
   filter: blur(20px);
   opacity: 0.6;
-  animation: glowPulse 2s ease-in-out infinite alternate;
+  animation: glowPulse 10s ease-in-out infinite alternate;
   z-index: -1;
 }
 
@@ -364,7 +364,7 @@
 }
 
 .cardIcon {
-  animation: iconPulse 2s ease-in-out infinite;
+  animation: iconPulse 10s ease-in-out infinite;
 }
 
 .cardContent {
@@ -445,7 +445,7 @@
 }
 
 .socialTitleIcon {
-  animation: iconPulse 2s ease-in-out infinite;
+  animation: iconPulse 10s ease-in-out infinite;
 }
 
 .socialLinks {
@@ -602,11 +602,11 @@
   letter-spacing: 1px;
   position: relative;
   z-index: 2;
-  animation: missionHeaderPulse 2s ease-in-out infinite;
+  animation: missionHeaderPulse 10s ease-in-out infinite;
 }
 
 .descriptionIcon {
-  animation: iconPulse 2s ease-in-out infinite;
+  animation: iconPulse 10s ease-in-out infinite;
 }
 
 .descriptionText {
@@ -639,19 +639,19 @@
 }
 
 @keyframes neonPulse {
-  0%, 100% {
+  0%, 90% {
     text-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
   }
-  50% {
+  95%, 100% {
     text-shadow: 0 0 50px rgba(0, 240, 255, 1);
   }
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+  0%, 90% {
     opacity: 0.6;
   }
-  50% {
+  95%, 100% {
     opacity: 0.9;
   }
 }
@@ -667,10 +667,10 @@
 }
 
 @keyframes rocketPulse {
-  0%, 100% {
+  0%, 90% {
     transform: scale(1);
   }
-  50% {
+  95%, 100% {
     transform: scale(1.1);
   }
 }
@@ -695,12 +695,12 @@
 
 
 @keyframes imagePulse {
-  0%, 100% {
+  0%, 90% {
     box-shadow: 
       0 0 30px rgba(0, 240, 255, 0.6),
       0 0 60px rgba(0, 240, 255, 0.3);
   }
-  50% {
+  95%, 100% {
     box-shadow: 
       0 0 40px rgba(0, 240, 255, 0.8),
       0 0 80px rgba(0, 240, 255, 0.4);
@@ -717,12 +717,12 @@
 }
 
 @keyframes framePulse {
-  0%, 100% {
+  0%, 90% {
     box-shadow: 
       0 0 30px rgba(0, 240, 255, 0.6),
       inset 0 0 30px rgba(0, 240, 255, 0.2);
   }
-  50% {
+  95%, 100% {
     box-shadow: 
       0 0 50px rgba(0, 240, 255, 0.8),
       inset 0 0 50px rgba(0, 240, 255, 0.4);
@@ -757,10 +757,10 @@
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%, 90% {
     transform: scale(1);
   }
-  50% {
+  95%, 100% {
     transform: scale(1.1);
   }
 }
@@ -873,6 +873,7 @@
   
   .socialLinks {
     gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .socialLink {
@@ -920,6 +921,8 @@
   
   .subtitle {
     font-size: 1rem;
+    text-align: center;
+    margin: 0 auto;
   }
   
   .missionBadge {
@@ -950,19 +953,19 @@
 }
 
 @keyframes missionHeaderPulse {
-  0%, 100% {
+  0%, 90% {
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
   }
-  50% {
+  95%, 100% {
     text-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.4);
   }
 }
 
 @keyframes missionTextGlow {
-  0%, 100% {
+  0%, 90% {
     text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
   }
-  50% {
+  95%, 100% {
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
   }
 }

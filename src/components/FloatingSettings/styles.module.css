@@ -1,0 +1,310 @@
+/* === FLOATING SETTINGS === */
+.floatingSettings {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.settingsButton {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--container-bg);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: settingsFloat 3s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+}
+
+.settingsButton:hover {
+  border-color: var(--glowing-border);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.settingsIcon {
+  color: var(--glowing-border);
+  transition: all 0.3s ease;
+}
+
+.settingsButton:hover .settingsIcon {
+  transform: rotate(90deg);
+}
+
+.settingsGlow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, var(--glowing-border), transparent);
+  opacity: 0;
+  animation: settingsPulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+.settingsButton:hover .settingsGlow {
+  opacity: 0.6;
+}
+
+/* === MENU DROPDOWN === */
+.settingsMenu {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 280px;
+  background: var(--container-bg);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: menuSlideIn 0.3s ease-out;
+  z-index: 1001;
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--glowing-border);
+  font-family: var(--font-orbitron);
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.settingsSection {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  font-family: var(--font-orbitron);
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.languageOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.languageOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--item-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.languageOption:hover {
+  border-color: var(--glowing-border);
+  background: rgba(0, 240, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.languageOption.active {
+  border-color: var(--glowing-border);
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.flagContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 18px;
+}
+
+.flag {
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.languageName {
+  flex: 1;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: var(--glowing-border);
+  animation: checkPulse 0.5s ease-out;
+}
+
+.themeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.themeOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--item-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.themeOption:hover {
+  border-color: var(--glowing-border);
+  background: rgba(0, 240, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.themeOption.active {
+  border-color: var(--glowing-border);
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.themeIcon {
+  color: var(--glowing-border);
+  transition: all 0.3s ease;
+}
+
+.themeOption:hover .themeIcon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.5));
+}
+
+.themeText {
+  flex: 1;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes settingsFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes settingsPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes menuSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes checkPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .floatingSettings {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .settingsButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .settingsMenu {
+    width: 260px;
+    top: 60px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settingsMenu {
+    width: 240px;
+    right: -20px;
+  }
+  
+  .menuHeader {
+    font-size: 0.8rem;
+  }
+  
+  .sectionTitle {
+    font-size: 0.7rem;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .settingsButton,
+  .settingsGlow {
+    animation: none;
+  }
+  
+  .settingsButton:hover {
+    transform: none;
+  }
+  
+  .settingsIcon {
+    transition: none;
+  }
+}

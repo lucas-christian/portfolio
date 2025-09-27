@@ -9,9 +9,38 @@ export const enUS = {
   },
 
   home: {
-    title: "Full Stack Developer",
-    subtitle: "Creating innovative solutions with cutting-edge technology",
-    description: "I'm a developer passionate about creating solutions that make a difference. Specialized in web and mobile development, always seeking to learn new technologies and face new challenges."
+    title: "DEV LUCH",
+    subtitle: "SOFTWARE DEVELOPER",
+    description: "Software Developer specialized in creating innovative and scalable solutions. Solid experience in automation, IoT, billing systems and advanced integrations. Currently on active mission at Soublox, developing high-performance backend solutions and robust architectures for the future of technology.",
+    mission: "MISSION",
+    status: "STATUS",
+    metrics: "METRICS",
+    connections: "CONNECTIONS",
+    age: "Age",
+    profession: "Profession",
+    education: "Education",
+    ageValue: "20 years old",
+    professionValue: "Software Developer",
+    educationValue: "Fatec Cotia",
+    commits: "Commits",
+    prs: "PRs",
+    stars: "Stars",
+    contributions: "Contributions"
+  },
+
+  terminal: {
+    title: "Dev Luch Terminal",
+    lines: {
+      "0": "> Initializing Dev Luch System...",
+      "1": "> Loading developer profile...",
+      "2": "> Connecting to Soublox servers...",
+      "3": "> Authentication successful",
+      "4": "> Mission status: ACTIVE",
+      "5": "> Welcome, Agent Luch",
+      "6": "> System ready for deployment"
+    },
+    enterSystem: "ENTER SYSTEM",
+    systemReady: "System ready. Press any key to continue..."
   },
 
   experience: {
