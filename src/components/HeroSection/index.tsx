@@ -6,11 +6,20 @@ import { Text } from "../Text";
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../../hooks/useLang";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { FloatingSettings } from "../FloatingSettings";
 import styles from "./styles.module.css";
 
 export const HeroSection = () => {
   const { t } = useLang();
+  
+  // Scroll reveal hooks
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: imageRef, isVisible: imageVisible } = useScrollReveal({ threshold: 0.3 });
+  const { ref: missionRef, isVisible: missionVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: statusRef, isVisible: statusVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: metricsRef, isVisible: metricsVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: socialRef, isVisible: socialVisible } = useScrollReveal({ threshold: 0.2 });
   
   const socialLinks = [
     { id: 0, icon: () => <Image src="/icons/github.svg" alt="GitHub" width={24} height={24} className={styles.socialIcon} />, label: "GitHub", url: "https://github.com/Lucas-Christian" },
@@ -40,9 +49,9 @@ export const HeroSection = () => {
       <Container flexDirection="column" className={styles.heroContainer}>
         {/* Imagem central com círculos */}
         <div className={styles.imageSection}>
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} ref={imageRef as any}>
             {/* Imagem do Dev Luch */}
-            <div className={styles.imageWrapper}>
+            <div className={`${styles.imageWrapper} ${imageVisible ? styles.reveal : ''}`}>
               <Image
                 src="/luch.webp"
                 alt="Dev Luch - Desenvolvedor Full Stack"
@@ -57,20 +66,20 @@ export const HeroSection = () => {
         </div>
 
         {/* Título principal com efeito neon flutuante */}
-        <div className={styles.titleSection}>
-          <div className={styles.titleWrapper}>
+        <div className={styles.titleSection} ref={titleRef as any}>
+          <div className={`${styles.titleWrapper} ${titleVisible ? styles.reveal : ''}`}>
             <Text family="orbitron" size="xl" className={styles.mainTitle}>
               {t("home.title")}
             </Text>
             <div className={styles.titleGlow}></div>
           </div>
-          <Text family="orbitron" size="lg" align="center" className={styles.subtitle}>
+          <Text family="orbitron" size="lg" align="center" className={`${styles.subtitle} ${titleVisible ? styles.reveal : ''}`}>
             {t("home.subtitle")}
           </Text>
         </div>
         <div className={styles.descriptionSection}>
           {/* Descrição flutuante */}
-          <div className={styles.descriptionCard}>
+          <div className={`${styles.descriptionCard} ${missionVisible ? styles.reveal : ''}`} ref={missionRef as any}>
             <div className={styles.descriptionHeader}>
               <Star size={16} className={styles.descriptionIcon} />
               <span>{t("home.mission")}</span>
@@ -85,7 +94,7 @@ export const HeroSection = () => {
 
             {/* Informações em cards flutuantes */}
             <div className={styles.infoCards}>
-              <div className={styles.card}>
+              <div className={`${styles.card} ${statusVisible ? styles.reveal : ''}`} ref={statusRef as any}>
                 <div className={styles.cardHeader}>
                   <User size={16} className={styles.cardIcon} />
                   <span>{t("home.status")}</span>
@@ -106,7 +115,7 @@ export const HeroSection = () => {
                 </div>
               </div>
 
-              <div className={styles.card}>
+              <div className={`${styles.card} ${metricsVisible ? styles.reveal : ''}`} ref={metricsRef as any}>
                 <div className={styles.cardHeader}>
                   <Code size={16} className={styles.cardIcon} />
                   <span>{t("home.metrics")}</span>
@@ -136,12 +145,12 @@ export const HeroSection = () => {
           </div>
 
           {/* Links sociais flutuantes */}
-          <div className={styles.socialSection}>
-            <div className={styles.socialTitle}>
+          <div className={styles.socialSection} ref={socialRef as any}>
+            <div className={`${styles.socialTitle} ${socialVisible ? styles.reveal : ''}`}>
               <Terminal size={16} className={styles.socialTitleIcon} />
               <span>{t("home.connections")}</span>
             </div>
-            <div className={styles.socialLinks}>
+            <div className={`${styles.socialLinks} ${socialVisible ? styles.reveal : ''}`}>
               {socialLinks.map(({ icon: Icon, id, label, url }) => (
                 <div key={`social-link-${id}`} className={styles.socialLinkWrapper}>
                   <Link href={url} target="_blank" className={styles.socialLink}>

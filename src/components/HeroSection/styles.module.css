@@ -625,7 +625,7 @@
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-20px) rotate(180deg);
+    transform: translateY(-20px) rotate(90deg);
   }
 }
 
@@ -967,6 +967,34 @@
   }
   95%, 100% {
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  }
+}
+
+/* === SCROLL REVEAL === */
+.reveal {
+  animation: scrollReveal 0.8s ease-out forwards;
+}
+
+/* Elementos começam ocultos apenas quando não têm a classe reveal */
+.titleWrapper:not(.reveal),
+.subtitle:not(.reveal),
+.imageWrapper:not(.reveal),
+.descriptionCard:not(.reveal),
+.card:not(.reveal),
+.socialTitle:not(.reveal),
+.socialLinks:not(.reveal) {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+@keyframes scrollReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
