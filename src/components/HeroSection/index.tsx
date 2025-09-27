@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useLang } from "../../hooks/useLang";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { FloatingSettings } from "../FloatingSettings";
+import { Particles } from "../Particles";
 import styles from "./styles.module.css";
 
 export const HeroSection = () => {
@@ -34,14 +35,7 @@ export const HeroSection = () => {
   return (
     <section className={styles.heroSection} id="hero">
       {/* Partículas flutuantes de fundo */}
-      <div className={styles.particles}>
-        <div className={styles.particle}></div>
-        <div className={styles.particle}></div>
-        <div className={styles.particle}></div>
-        <div className={styles.particle}></div>
-        <div className={styles.particle}></div>
-        <div className={styles.particle}></div>
-      </div>
+      <Particles count={12} />
 
       {/* Grid de fundo futurista */}
       <div className={styles.gridBackground}></div>

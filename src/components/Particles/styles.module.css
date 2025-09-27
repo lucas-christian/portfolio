@@ -1,0 +1,129 @@
+/* === PARTÍCULAS FLUTUANTES === */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--glowing-border);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--glowing-border);
+  filter: blur(0.5px);
+}
+
+.particle1 {
+  top: 15%;
+  left: 20%;
+  animation: particlePulse 3s ease-in-out infinite;
+  animation-delay: 0s;
+  width: 4px;
+  height: 4px;
+}
+
+.particle2 {
+  top: 25%;
+  right: 15%;
+  animation: particlePulse 2.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+  width: 5px;
+  height: 5px;
+}
+
+.particle3 {
+  top: 40%;
+  left: 10%;
+  animation: particlePulse 4s ease-in-out infinite;
+  animation-delay: 1s;
+  width: 3px;
+  height: 3px;
+}
+
+.particle4 {
+  top: 60%;
+  right: 25%;
+  animation: particlePulse 2.8s ease-in-out infinite;
+  animation-delay: 1.5s;
+  width: 4px;
+  height: 4px;
+}
+
+.particle5 {
+  bottom: 20%;
+  left: 30%;
+  animation: particlePulse 3.5s ease-in-out infinite;
+  animation-delay: 2s;
+  width: 6px;
+  height: 6px;
+}
+
+.particle6 {
+  bottom: 30%;
+  right: 10%;
+  animation: particlePulse 2.2s ease-in-out infinite;
+  animation-delay: 2.5s;
+  width: 3px;
+  height: 3px;
+}
+
+/* === ANIMAÇÃO DE PULSAÇÃO === */
+@keyframes particlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+    box-shadow: 0 0 10px var(--glowing-border);
+    filter: blur(0.5px);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 20px var(--glowing-border), 0 0 30px rgba(0, 240, 255, 0.8);
+    filter: blur(1px);
+  }
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .particle {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .particle1, .particle2, .particle3, .particle4, .particle5, .particle6 {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .particle {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .particle1, .particle2, .particle3, .particle4, .particle5, .particle6 {
+    width: 1.5px;
+    height: 1.5px;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .particle,
+  .particle1,
+  .particle2,
+  .particle3,
+  .particle4,
+  .particle5,
+  .particle6 {
+    animation: none;
+    opacity: 0.6;
+  }
+}

@@ -2,6 +2,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Terminal, Play } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
+import { Particles } from "../Particles";
 import styles from "./styles.module.css";
 
 interface TerminalIntroProps {
@@ -24,30 +25,6 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
-
-  // Posições fixas para as partículas para evitar problemas de hidratação
-  const particlePositions = [
-    { left: "10%", top: "20%" },
-    { left: "85%", top: "15%" },
-    { left: "25%", top: "80%" },
-    { left: "70%", top: "75%" },
-    { left: "50%", top: "10%" },
-    { left: "15%", top: "60%" },
-    { left: "90%", top: "40%" },
-    { left: "35%", top: "45%" },
-    { left: "75%", top: "25%" },
-    { left: "5%", top: "85%" },
-    { left: "95%", top: "65%" },
-    { left: "60%", top: "5%" },
-    { left: "40%", top: "90%" },
-    { left: "20%", top: "35%" },
-    { left: "80%", top: "55%" },
-    { left: "45%", top: "70%" },
-    { left: "65%", top: "30%" },
-    { left: "30%", top: "95%" },
-    { left: "55%", top: "50%" },
-    { left: "12%", top: "40%" }
-  ];
 
   useEffect(() => {
     setIsMounted(true);
@@ -85,15 +62,7 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
       {/* Fundo futurista */}
       <div className={styles.background}>
         <div className={styles.gridOverlay}></div>
-         <div className={styles.particles}>
-           {particlePositions.map((position, i) => (
-             <div key={i} className={styles.particle} style={{
-               animationDelay: `${i * 0.1}s`,
-               left: position.left,
-               top: position.top
-             }}></div>
-           ))}
-         </div>
+         <Particles count={8} />
       </div>
 
       {/* Container principal */}
