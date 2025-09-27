@@ -62,7 +62,7 @@ export async function generateMetadata(): Promise<Metadata> {
         siteName: "Dev Luch Portfolio",
         images: [
           {
-            url: "/og-image.jpg",
+            url: "/luch.webp",
             width: 1200,
             height: 630,
             alt: "Dev Luch - Software Developer",
@@ -75,7 +75,7 @@ export async function generateMetadata(): Promise<Metadata> {
         card: "summary_large_image",
         title: "Dev Luch - Software Developer",
         description: "Software Developer specialized in NestJS, React, Node.js, TypeScript and AWS. Currently on mission at Soublox.",
-        images: ["/og-image.jpg"],
+        images: ["/luch.webp"],
       },
       robots: {
         index: true,
