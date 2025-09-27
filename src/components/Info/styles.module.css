@@ -1,23 +1,38 @@
 .infoRoot {
   display: flex;
-  gap: 8px;
-  padding: 8px 16px;
-  background-color: var(--item-bg);
-  font-size: 13.33px;
   align-items: center;
-  width: 100%;
-  text-align: justify;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--item-bg);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.left {
-  border-left: 4px solid var(--active-border);
+.infoRoot:hover {
+  border-color: var(--active-border);
+  box-shadow: 0 0 10px rgba(60, 229, 252, 0.2);
+  transform: translateY(-1px);
 }
 
-.top {
-  border-top: 2px solid var(--active-border);
+.infoRoot.left {
+  border-left: 3px solid var(--electric-blue);
+}
+
+.infoRoot.top {
+  border-top: 3px solid var(--electric-blue);
 }
 
 .property {
   font-weight: 600;
+  color: var(--electric-blue);
 }
 
+@media (max-width: 768px) {
+  .infoRoot {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
