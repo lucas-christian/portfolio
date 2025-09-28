@@ -25,7 +25,10 @@ export const enUS = {
     commits: "Commits",
     prs: "PRs",
     stars: "Stars",
-    contributions: "Contributions"
+    contributions: "Contributions",
+    rank: "Rank",
+    loading: "Loading stats...",
+    error: "Error loading stats"
   },
 
   terminal: {

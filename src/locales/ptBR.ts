@@ -25,7 +25,10 @@ export const ptBR = {
     commits: "Commits",
     prs: "PRs",
     stars: "Stars",
-    contributions: "Contribuições"
+    contributions: "Contribuições",
+    rank: "Rank",
+    loading: "Carregando estatísticas...",
+    error: "Erro ao carregar estatísticas"
   },
 
   terminal: {

@@ -7,14 +7,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "../../hooks/useLang";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useGitHubStats } from "../../hooks/useGitHubStats";
 import { FloatingSettings } from "../FloatingSettings";
 import { Particles } from "../Particles";
 import styles from "./styles.module.css";
 
 export const HeroSection = () => {
   const { t } = useLang();
+  const { totalStars, totalCommits, totalPRs, totalContributions, rank, isLoading, error } = useGitHubStats();
   
-  // Scroll reveal hooks
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal({ threshold: 0.2 });
   const { ref: imageRef, isVisible: imageVisible } = useScrollReveal({ threshold: 0.3 });
   const { ref: missionRef, isVisible: missionVisible } = useScrollReveal({ threshold: 0.2 });
@@ -30,7 +31,6 @@ export const HeroSection = () => {
     { id: 4, icon: () => <Image src="/icons/tiktok.svg" alt="TikTok" width={24} height={24} className={styles.socialIcon} />, label: "TikTok", url: "https://www.tiktok.com/@dev.luch" },
     { id: 5, icon: () => <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className={styles.socialIcon} />, label: "Instagram", url: "https://www.instagram.com/dev.luch/" }
   ];
-
 
   return (
     <section className={styles.heroSection} id="hero">
@@ -110,29 +110,45 @@ export const HeroSection = () => {
               </div>
 
               <div className={`${styles.card} ${metricsVisible ? styles.reveal : ''}`} ref={metricsRef as any}>
+                {!isLoading && !error && (
+                  <div className={styles.rankCircle}>
+                    <span className={styles.rankText}>{rank}</span>
+                  </div>
+                )}
+                
                 <div className={styles.cardHeader}>
                   <Code size={16} className={styles.cardIcon} />
                   <span>{t("home.metrics")}</span>
                 </div>
                 <div className={styles.cardContent}>
-                  <div className={styles.metricGrid}>
-                    <div className={styles.metric}>
-                      <span className={styles.metricNumber}>888</span>
-                      <span className={styles.metricLabel}>{t("home.commits")}</span>
+                  {isLoading ? (
+                    <div className={styles.loadingContainer}>
+                      <span className={styles.loadingText}>{t("home.loading")}</span>
                     </div>
-                    <div className={styles.metric}>
-                      <span className={styles.metricNumber}>15</span>
-                      <span className={styles.metricLabel}>{t("home.prs")}</span>
+                  ) : error ? (
+                    <div className={styles.errorContainer}>
+                      <span className={styles.errorText}>{t("home.error")}</span>
                     </div>
-                    <div className={styles.metric}>
-                      <span className={styles.metricNumber}>10</span>
-                      <span className={styles.metricLabel}>{t("home.stars")}</span>
+                  ) : (
+                    <div className={styles.metricGrid}>
+                      <div className={styles.metric}>
+                        <span className={styles.metricNumber}>{totalCommits.toLocaleString()}</span>
+                        <span className={styles.metricLabel}>{t("home.commits")}</span>
+                      </div>
+                      <div className={styles.metric}>
+                        <span className={styles.metricNumber}>{totalPRs}</span>
+                        <span className={styles.metricLabel}>{t("home.prs")}</span>
+                      </div>
+                      <div className={styles.metric}>
+                        <span className={styles.metricNumber}>{totalStars}</span>
+                        <span className={styles.metricLabel}>{t("home.stars")}</span>
+                      </div>
+                      <div className={styles.metric}>
+                        <span className={styles.metricNumber}>{totalContributions}</span>
+                        <span className={styles.metricLabel}>{t("home.contributions")}</span>
+                      </div>
                     </div>
-                    <div className={styles.metric}>
-                      <span className={styles.metricNumber}>13</span>
-                      <span className={styles.metricLabel}>{t("home.contributions")}</span>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

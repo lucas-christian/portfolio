@@ -434,6 +434,44 @@
   margin-top: 0.25rem;
 }
 
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.loadingText {
+  color: var(--glowing-border);
+  font-family: var(--font-orbitron);
+  font-size: 0.9rem;
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.errorText {
+  color: #ff6b6b;
+  font-family: var(--font-orbitron);
+  font-size: 0.9rem;
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* === SEÇÃO SOCIAL === */
 .socialSection {
   display: flex;
@@ -1153,6 +1191,62 @@
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+.rankCircle {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--container-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.rankCircle:hover {
+  transform: scale(1.05);
+  border-color: var(--glowing-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rankText {
+  color: var(--glowing-border);
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .rankCircle {
+    width: 45px;
+    height: 45px;
+    top: 8px;
+    right: 8px;
+  }
+  
+  .rankText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rankCircle {
+    width: 35px;
+    height: 35px;
+    top: 8px;
+    right: 15px;
+  }
+  
+  .rankText {
+    font-size: 0.9rem;
   }
 }
 
