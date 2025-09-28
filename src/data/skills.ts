@@ -1,7 +1,7 @@
 export interface Skill {
   id: string;
   name: string;
-  category: string;
+  categories: string[];
   rank: 'E' | 'D' | 'C' | 'B' | 'A' | 'S' | 'SS' | 'SSS' | 'EX';
   percentage: number;
   description: string;
@@ -19,7 +19,7 @@ export const skillsData: Skill[] = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    category: 'core',
+    categories: ['core', 'frontend', 'backend'],
     rank: 'S',
     percentage: 100,
     description: 'Linguagem principal para desenvolvimento full-stack',
@@ -34,7 +34,7 @@ export const skillsData: Skill[] = [
   {
     id: 'typescript',
     name: 'TypeScript',
-    category: 'core',
+    categories: ['core', 'frontend', 'backend'],
     rank: 'A',
     percentage: 90,
     description: 'JavaScript com tipagem estática para desenvolvimento robusto',
@@ -49,7 +49,7 @@ export const skillsData: Skill[] = [
   {
     id: 'react',
     name: 'React',
-    category: 'core',
+    categories: ['core', 'frontend'],
     rank: 'S',
     percentage: 100,
     description: 'Biblioteca para interfaces de usuário interativas',
@@ -64,7 +64,7 @@ export const skillsData: Skill[] = [
   {
     id: 'nextjs',
     name: 'Next.js',
-    category: 'core',
+    categories: ['core', 'frontend'],
     rank: 'A',
     percentage: 90,
     description: 'Framework React para aplicações de produção',
@@ -79,7 +79,7 @@ export const skillsData: Skill[] = [
   {
     id: 'nestjs',
     name: 'NestJS',
-    category: 'core',
+    categories: ['core', 'backend'],
     rank: 'A',
     percentage: 90,
     description: 'Framework Node.js para aplicações server-side escaláveis',
@@ -94,7 +94,7 @@ export const skillsData: Skill[] = [
   {
     id: 'git',
     name: 'Git',
-    category: 'core',
+    categories: ['core', 'tools'],
     rank: 'S',
     percentage: 100,
     description: 'Sistema de controle de versão distribuído',
@@ -109,7 +109,7 @@ export const skillsData: Skill[] = [
   {
     id: 'github',
     name: 'GitHub',
-    category: 'core',
+    categories: ['core', 'tools', 'cloud'],
     rank: 'S',
     percentage: 100,
     description: 'Plataforma de hospedagem e colaboração em código',
@@ -126,7 +126,7 @@ export const skillsData: Skill[] = [
   {
     id: 'html5',
     name: 'HTML5',
-    category: 'frontend',
+    categories: ['frontend'],
     rank: 'S',
     percentage: 100,
     description: 'Linguagem de marcação para estrutura web',
@@ -140,7 +140,7 @@ export const skillsData: Skill[] = [
   {
     id: 'css3',
     name: 'CSS3',
-    category: 'frontend',
+    categories: ['frontend'],
     rank: 'S',
     percentage: 100,
     description: 'Linguagem de estilo para design web',
@@ -154,7 +154,7 @@ export const skillsData: Skill[] = [
   {
     id: 'tailwindcss',
     name: 'Tailwind CSS',
-    category: 'frontend',
+    categories: ['frontend'],
     rank: 'B',
     percentage: 80,
     description: 'Framework CSS utilitário para design rápido',
@@ -168,7 +168,7 @@ export const skillsData: Skill[] = [
   {
     id: 'sass',
     name: 'Sass',
-    category: 'frontend',
+    categories: ['frontend'],
     rank: 'D',
     percentage: 60,
     description: 'Pré-processador CSS para estilos mais eficientes',
@@ -184,7 +184,7 @@ export const skillsData: Skill[] = [
   {
     id: 'nodejs',
     name: 'Node.js',
-    category: 'backend',
+    categories: ['backend', 'core'],
     rank: 'B',
     percentage: 85,
     description: 'Runtime JavaScript para desenvolvimento backend',
@@ -198,7 +198,7 @@ export const skillsData: Skill[] = [
   {
     id: 'express',
     name: 'Express',
-    category: 'backend',
+    categories: ['backend'],
     rank: 'C',
     percentage: 70,
     description: 'Framework web minimalista para Node.js',
@@ -212,7 +212,7 @@ export const skillsData: Skill[] = [
   {
     id: 'postgresql',
     name: 'PostgreSQL',
-    category: 'backend',
+    categories: ['backend'],
     rank: 'C',
     percentage: 70,
     description: 'Banco de dados relacional robusto',
@@ -226,7 +226,7 @@ export const skillsData: Skill[] = [
   {
     id: 'mongodb',
     name: 'MongoDB',
-    category: 'backend',
+    categories: ['backend'],
     rank: 'D',
     percentage: 60,
     description: 'Banco de dados NoSQL flexível',
@@ -240,7 +240,7 @@ export const skillsData: Skill[] = [
   {
     id: 'redis',
     name: 'Redis',
-    category: 'backend',
+    categories: ['backend'],
     rank: 'E',
     percentage: 50,
     description: 'Banco de dados em memória para cache',
@@ -256,7 +256,7 @@ export const skillsData: Skill[] = [
   {
     id: 'aws',
     name: 'AWS',
-    category: 'cloud',
+    categories: ['cloud'],
     rank: 'C',
     percentage: 70,
     description: 'Serviços de nuvem da Amazon Web Services',
@@ -270,7 +270,7 @@ export const skillsData: Skill[] = [
   {
     id: 'docker',
     name: 'Docker',
-    category: 'cloud',
+    categories: ['cloud'],
     rank: 'D',
     percentage: 60,
     description: 'Containerização de aplicações',
@@ -284,7 +284,7 @@ export const skillsData: Skill[] = [
   {
     id: 'vercel',
     name: 'Vercel',
-    category: 'cloud',
+    categories: ['cloud', 'frontend'],
     rank: 'B',
     percentage: 80,
     description: 'Plataforma de deploy para frontend e full-stack',
@@ -295,26 +295,12 @@ export const skillsData: Skill[] = [
     color: '#000000',
     glowColor: '#000000'
   },
-  {
-    id: 'netlify',
-    name: 'Netlify',
-    category: 'cloud',
-    rank: 'D',
-    percentage: 60,
-    description: 'Plataforma de deploy e hospedagem',
-    experience: '6+ meses',
-    projects: ['Projetos estáticos'],
-    relatedSkills: ['Git', 'Frontend', 'CI/CD'],
-    icon: '/developer-icons/netlify.svg',
-    color: '#00C7B7',
-    glowColor: '#00C7B7'
-  },
 
   // Mobile
   {
     id: 'react-native',
     name: 'React Native',
-    category: 'mobile',
+    categories: ['mobile', 'frontend'],
     rank: 'E',
     percentage: 50,
     description: 'Framework para desenvolvimento de aplicações móveis',
@@ -328,7 +314,7 @@ export const skillsData: Skill[] = [
   {
     id: 'flutter',
     name: 'Flutter',
-    category: 'mobile',
+    categories: ['mobile'],
     rank: 'E',
     percentage: 50,
     description: 'Framework para desenvolvimento mobile multiplataforma',
@@ -344,7 +330,7 @@ export const skillsData: Skill[] = [
   {
     id: 'vscode',
     name: 'VS Code',
-    category: 'tools',
+    categories: ['tools', 'core'],
     rank: 'S',
     percentage: 100,
     description: 'Editor de código principal',
@@ -358,7 +344,7 @@ export const skillsData: Skill[] = [
   {
     id: 'figma',
     name: 'Figma',
-    category: 'tools',
+    categories: ['tools'],
     rank: 'D',
     percentage: 60,
     description: 'Ferramenta de design de interfaces',
@@ -372,7 +358,7 @@ export const skillsData: Skill[] = [
   {
     id: 'postman',
     name: 'Postman',
-    category: 'tools',
+    categories: ['tools', 'backend'],
     rank: 'C',
     percentage: 70,
     description: 'Ferramenta para teste e documentação de APIs',
@@ -386,7 +372,7 @@ export const skillsData: Skill[] = [
   {
     id: 'jest',
     name: 'Jest',
-    category: 'tools',
+    categories: ['tools', 'frontend'],
     rank: 'E',
     percentage: 50,
     description: 'Framework de testes JavaScript',
@@ -400,7 +386,7 @@ export const skillsData: Skill[] = [
   {
     id: 'cypress',
     name: 'Cypress',
-    category: 'tools',
+    categories: ['tools', 'frontend'],
     rank: 'E',
     percentage: 50,
     description: 'Framework de testes end-to-end',
@@ -414,7 +400,7 @@ export const skillsData: Skill[] = [
   {
     id: 'eslint',
     name: 'ESLint',
-    category: 'tools',
+    categories: ['tools', 'core'],
     rank: 'C',
     percentage: 70,
     description: 'Ferramenta de análise de código JavaScript',
@@ -428,7 +414,7 @@ export const skillsData: Skill[] = [
   {
     id: 'prettier',
     name: 'Prettier',
-    category: 'tools',
+    categories: ['tools', 'core'],
     rank: 'C',
     percentage: 70,
     description: 'Formatador de código para consistência',

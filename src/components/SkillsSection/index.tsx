@@ -53,7 +53,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
   // Removido - agora usando handleCategoryClick
 
   const getCategorySkills = (category: string) =>
-    getFilteredSkills().filter(skill => skill.category === category);
+    getFilteredSkills().filter(skill => skill.categories.includes(category));
 
   // Verificar se precisa de scroll baseado na quantidade de skills
   const needsScroll = (category: string) => {

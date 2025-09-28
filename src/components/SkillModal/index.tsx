@@ -44,7 +44,17 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
       >
         {/* Header */}
         <div className={styles.modalHeader}>
-          <div className={styles.skillIcon}>{skill.icon || '⚡'}</div>
+          <div className={styles.skillIcon}>
+            {skill.icon ? (
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                className={styles.skillIconImage}
+              />
+            ) : (
+              '⚡'
+            )}
+          </div>
           <div className={styles.skillInfo}>
             <h2 className={styles.skillName}>{skill.name}</h2>
             <div className={styles.skillMeta}>

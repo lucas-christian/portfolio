@@ -50,6 +50,16 @@
   font-size: 3rem;
   filter: drop-shadow(0 0 20px var(--skill-color));
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillIconImage {
+  width: 3rem;
+  height: 3rem;
+  filter: drop-shadow(0 0 20px var(--skill-color));
+  transition: all 0.3s ease;
 }
 
 .skillInfo {
@@ -259,6 +269,15 @@
     font-size: 1.5rem;
   }
   
+  .skillIcon {
+    font-size: 2.5rem;
+  }
+  
+  .skillIconImage {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
   .skillMeta {
     justify-content: center;
   }
@@ -276,5 +295,16 @@
   .levelLabel {
     min-width: auto;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillIcon {
+    font-size: 2rem;
+  }
+  
+  .skillIconImage {
+    width: 2rem;
+    height: 2rem;
   }
 }

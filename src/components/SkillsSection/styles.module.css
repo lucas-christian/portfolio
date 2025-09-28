@@ -189,6 +189,7 @@
   margin-bottom: 3rem;
   width: 100%;
   max-width: 100%;
+  max-height: 95dvh;
   overflow-x: hidden;
 }
 
@@ -299,7 +300,7 @@
 
 .skillsContent.withScroll {
   overflow-y: auto !important;
-  max-height: 70vh;
+  max-height: 100%;
   transition: all 0.5s ease;
 }
 
@@ -523,13 +524,13 @@
     gap: 1rem;
     width: 100%;
     max-width: 100%;
+    max-height: 100%;
   }
   
   .categoriesSidebar {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    order: 2;
   }
   
   .skillsContent {
@@ -722,5 +723,20 @@
   
   .welcomeText {
     font-size: 0.9rem;
+  }
+  
+  /* Desabilitar animações pesadas em mobile */
+  .particleSystem,
+  .gridPattern,
+  .gradientOrbs,
+  .orb1,
+  .orb2,
+  .orb3 {
+    animation: none !important;
+  }
+  
+  /* Manter apenas animações suaves */
+  .skillCard {
+    animation: fadeIn 0.6s ease-out forwards;
   }
 }
