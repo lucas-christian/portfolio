@@ -45,9 +45,9 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
           clearInterval(typeInterval);
           setTimeout(() => {
             setCurrentLine(prev => prev + 1);
-          }, 100);
+          }, 10);
         }
-      }, 50);
+      }, 20);
 
       return () => clearInterval(typeInterval);
     } else {
