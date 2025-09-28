@@ -192,7 +192,17 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
                       '--delay': `${index * 100}ms`
                     } as React.CSSProperties}
                   >
-                    <div className={styles.skillIcon}>{skill.icon || '⚡'}</div>
+                     <div className={styles.skillIcon}>
+                       {skill.icon ? (
+                         <img 
+                           src={skill.icon} 
+                           alt={skill.name}
+                           className={styles.skillIconImage}
+                         />
+                       ) : (
+                         '⚡'
+                       )}
+                     </div>
                     <div className={styles.skillInfo}>
                       <div className={styles.skillName}>{skill.name}</div>
                       <div className={styles.skillDetails}>

@@ -373,6 +373,16 @@
   font-size: 2.2rem;
   filter: drop-shadow(0 0 10px var(--skill-color));
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillIconImage {
+  width: 2.2rem;
+  height: 2.2rem;
+  filter: drop-shadow(0 0 10px var(--skill-color));
+  transition: all 0.3s ease;
 }
 
 .skillInfo {
@@ -562,6 +572,11 @@
     font-size: 1.8rem;
   }
   
+  .skillIconImage {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
   .skillName {
     font-size: 1rem;
   }
@@ -666,6 +681,11 @@
   
   .skillIcon {
     font-size: 1.6rem;
+  }
+  
+  .skillIconImage {
+    width: 1.6rem;
+    height: 1.6rem;
   }
   
   .skillName {
