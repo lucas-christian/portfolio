@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { skillsData, skillCategories, rankConfig, Skill } from '@data/skills';
 import { SkillModal } from '../SkillModal';
 import { ParticleSystem } from '../ParticleSystem';
+import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, TreePine, GitBranch, GitCommit, GitFork } from 'lucide-react';
 import styles from './styles.module.css';
 
 interface SkillsSectionProps {
@@ -49,16 +50,41 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
     setSelectedSkill(null);
   };
 
-  const toggleCategory = (categoryId: string) => {
-    if (expandedCategory === categoryId) {
-      setExpandedCategory(null);
-    } else {
-      setExpandedCategory(categoryId);
-    }
+  // Removido - agora usando handleCategoryClick
+
+  const getCategorySkills = (category: string) =>
+    getFilteredSkills().filter(skill => skill.category === category);
+
+  // Verificar se precisa de scroll baseado na quantidade de skills
+  const needsScroll = (category: string) => {
+    const skills = getCategorySkills(category);
+    return skills.length > 8; // Aumentei para 8 skills para dar mais espaço
   };
 
-  const getCategorySkills = (category: string) => 
-    getFilteredSkills().filter(skill => skill.category === category);
+  // Estado para controlar quando mostrar scroll (após animação)
+  const [showScroll, setShowScroll] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Função para ativar scroll após animação
+  const handleCategoryClick = (categoryId: string) => {
+    if (expandedCategory === categoryId) {
+      setExpandedCategory(null);
+      setShowScroll(false);
+      setIsAnimating(false);
+    } else {
+      setExpandedCategory(categoryId);
+      setShowScroll(false); // Garantir que está desabilitado
+      setIsAnimating(true); // Marcar como animando
+
+      // Ativar scroll após 1500ms (tempo completo da animação)
+      setTimeout(() => {
+        setIsAnimating(false);
+        if (needsScroll(categoryId)) {
+          setShowScroll(true);
+        }
+      }, 1500);
+    }
+  };
 
 
   return (
@@ -79,7 +105,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
       {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>
-          <span className={styles.titleGlow}>🌳 Skills</span>
+          <span className={styles.titleGlow}><Network size={48} /> Skills</span>
         </h2>
         <p className={styles.subtitle}>
           Clique nas categorias para explorar
@@ -96,7 +122,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className={styles.searchInput}
           />
-          <div className={styles.searchIcon}>🔍</div>
+          <div className={styles.searchIcon}>
+            <Search size={20} />
+          </div>
         </div>
       </div>
 
@@ -108,20 +136,20 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
           {skillCategories.map((category) => {
             const categorySkills = getCategorySkills(category.id);
             const isExpanded = expandedCategory === category.id;
-            
+
             return (
               <div
                 key={category.id}
                 className={`${styles.categoryItem} ${isExpanded ? styles.active : ''}`}
-                onClick={() => toggleCategory(category.id)}
+                onClick={() => handleCategoryClick(category.id)}
                 style={{ '--category-color': category.color } as React.CSSProperties}
               >
                 <div className={styles.categoryIcon}>
-                  {category.id === 'core' ? '⚡' : 
-                   category.id === 'frontend' ? '🎨' :
-                   category.id === 'backend' ? '⚙️' :
-                   category.id === 'cloud' ? '☁️' :
-                   category.id === 'mobile' ? '📱' : '🛠️'}
+                  {category.id === 'core' ? <Zap size={24} /> :
+                    category.id === 'frontend' ? <Palette size={24} /> :
+                      category.id === 'backend' ? <Settings size={24} /> :
+                        category.id === 'cloud' ? <Cloud size={24} /> :
+                          category.id === 'mobile' ? <Smartphone size={24} /> : <Wrench size={24} />}
                 </div>
                 <div className={styles.categoryInfo}>
                   <div className={styles.categoryName}>{category.name}</div>
@@ -136,7 +164,12 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
         </div>
 
         {/* Skills Content */}
-        <div className={styles.skillsContent}>
+        <div
+          className={`${styles.skillsContent} ${expandedCategory && needsScroll(expandedCategory) && showScroll && !isAnimating ? styles.withScroll : ''}`}
+          style={{
+            overflowY: isAnimating ? 'hidden !important' : (expandedCategory && needsScroll(expandedCategory) && showScroll ? 'auto' : 'hidden')
+          } as React.CSSProperties}
+        >
           {expandedCategory ? (
             <div className={styles.skillsSection}>
               <div className={styles.sectionHeader}>
@@ -147,7 +180,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
                   {getCategorySkills(expandedCategory).length} tecnologias disponíveis
                 </p>
               </div>
-              
+
               <div className={styles.skillsGrid}>
                 {getCategorySkills(expandedCategory).map((skill, index) => (
                   <div
@@ -174,7 +207,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
             </div>
           ) : (
             <div className={styles.welcomeSection}>
-              <div className={styles.welcomeIcon}>🌳</div>
+              <div className={styles.welcomeIcon}>
+                <GitFork size={48} />
+              </div>
               <h2 className={styles.welcomeTitle}>Selecione uma Categoria</h2>
               <p className={styles.welcomeText}>
                 Escolha uma categoria ao lado para explorar suas skills e tecnologias

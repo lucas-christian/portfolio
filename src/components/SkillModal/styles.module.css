@@ -20,7 +20,7 @@
 }
 
 .modalContent {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
   border: 2px solid var(--skill-color);
   border-radius: 20px;
   max-width: 600px;
@@ -60,10 +60,8 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  background: linear-gradient(45deg, var(--skill-color), #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
 }
 
 .skillMeta {
@@ -75,8 +73,8 @@
 .skillPercentage {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--skill-color);
-  text-shadow: 0 0 10px var(--skill-color);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
 }
 
 .closeButton {
@@ -113,15 +111,18 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
-  color: var(--skill-color);
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
 }
 
 .modalBody p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 0.5rem;
+  font-weight: 400;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
 }
 
 .modalBody ul {
@@ -130,19 +131,22 @@
 }
 
 .modalBody li {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   padding-left: 1.5rem;
+  font-weight: 400;
+  text-shadow: 0 0 3px rgba(0, 240, 255, 0.2);
 }
 
 .modalBody li::before {
   content: '▶';
   position: absolute;
   left: 0;
-  color: var(--skill-color);
+  color: #ffffff;
   font-size: 0.8rem;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.6);
 }
 
 .relatedList {
@@ -173,8 +177,9 @@
 }
 
 .relatedName {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
   font-weight: 500;
+  text-shadow: 0 0 3px rgba(0, 240, 255, 0.2);
 }
 
 .modalFooter {
@@ -189,9 +194,11 @@
 }
 
 .levelLabel {
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
   font-size: 0.9rem;
   min-width: 120px;
+  font-weight: 500;
+  text-shadow: 0 0 3px rgba(0, 240, 255, 0.2);
 }
 
 .levelBar {

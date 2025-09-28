@@ -53,6 +53,7 @@
 html,
 body {
   max-width: 100dvw;
+  user-select: none;
 }
 
 body {
@@ -79,6 +80,102 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* === SCROLLBAR BLACK - SIMPLES E ELEGANTE === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #444;
+  box-shadow: 0 0 1px 1px #111, inset 0 0 4px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #666, #444, #222);
+  box-shadow: inset 0 0 1px 1px #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(left, #777, #555, #333);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #666 #444;
+}
+
+/* Scrollbar para todos os elementos com overflow */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #666 #444;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #444;
+  box-shadow: 0 0 1px 1px #111, inset 0 0 4px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #666, #444, #222);
+  box-shadow: inset 0 0 1px 1px #888;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(left, #777, #555, #333);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Remover setinhas feias para todos os elementos - REGRAS MAIS ESPECÍFICAS */
+*::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+*::-webkit-scrollbar-button:start:decrement,
+*::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+*::-webkit-scrollbar-button:vertical:start:decrement,
+*::-webkit-scrollbar-button:vertical:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+*::-webkit-scrollbar-button:horizontal:start:decrement,
+*::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {

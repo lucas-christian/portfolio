@@ -113,6 +113,10 @@
 .titleGlow {
   text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
 }
+.titleGlow svg {
+  color: #00F0FF;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
+}
 
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
@@ -171,8 +175,10 @@
   top: 50%;
   transform: translateY(-50%);
   color: rgba(0, 240, 255, 0.7);
-  font-size: 1.2rem;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Roadmap Container */
@@ -235,8 +241,11 @@
 }
 
 .categoryIcon {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   filter: drop-shadow(0 0 8px var(--category-color));
+  color: var(--category-color);
 }
 
 .categoryInfo {
@@ -284,7 +293,17 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow-x: hidden;
+  overflow-y: hidden !important; /* Forçar hidden com !important */
+  max-height: none;
 }
+
+.skillsContent.withScroll {
+  overflow-y: auto !important;
+  max-height: 70vh;
+  transition: all 0.5s ease;
+}
+
+/* Skills Content - Scroll será aplicado globalmente */
 
 .skillsSection {
   animation: fadeIn 0.5s ease-out;
@@ -318,6 +337,7 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .skillCard {
@@ -428,9 +448,13 @@
 }
 
 .welcomeIcon {
-  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
   animation: float 3s ease-in-out infinite;
+  color: #00F0FF;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
 }
 
 .welcomeTitle {
