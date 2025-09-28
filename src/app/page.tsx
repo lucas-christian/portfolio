@@ -3,6 +3,7 @@ import { useState } from "react";
 import { TerminalIntro } from "../components/TerminalIntro";
 import { HeroSection } from "../components/HeroSection";
 import styles from "./page.module.css";
+import { SocialSection } from "../components/SocialSection";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection />
+      <SocialSection />
     </div>
   );
 }
