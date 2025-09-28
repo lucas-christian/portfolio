@@ -1,0 +1,682 @@
+/* SkillsSection - Design Futurista/Gamer Revolucionário */
+
+.skillsTree {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  overflow: hidden;
+  padding: 2rem;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Background Effects */
+.backgroundEffects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  contain: layout;
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 25s linear infinite;
+  overflow: hidden;
+  contain: layout;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
+}
+
+.gradientOrbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.orb3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -30px) scale(1.1); }
+  50% { transform: translate(-10px, -20px) scale(0.9); }
+  75% { transform: translate(30px, 10px) scale(1.05); }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #00F0FF, #8B5CF6, #F59E0B);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.titleGlow {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.searchContainer {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 240, 255, 0.3);
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #00F0FF;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 240, 255, 0.7);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* Roadmap Container */
+.roadmapContainer {
+  display: flex;
+  gap: 2rem;
+  min-height: 60vh;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Categories Sidebar */
+.categoriesSidebar {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: fit-content;
+  flex-shrink: 0;
+}
+
+.sidebarTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #00F0FF;
+  text-align: center;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.categoryItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.categoryItem.active {
+  background: linear-gradient(135deg, var(--category-color), rgba(255, 255, 255, 0.1));
+  border-color: var(--category-color);
+  color: white;
+  box-shadow: 0 0 20px var(--category-color);
+}
+
+.categoryIcon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px var(--category-color));
+}
+
+.categoryInfo {
+  flex: 1;
+}
+
+.categoryName {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skillCount {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.expandIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.categoryItem.active .expandIcon {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(180deg);
+}
+
+/* Skills Content */
+.skillsContent {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: hidden;
+}
+
+.skillsSection {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #00F0FF, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.skillCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--skill-color);
+  border-radius: 12px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 1rem;
+  backdrop-filter: blur(5px);
+  animation: slideInUp 0.5s ease-out;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+  min-height: 80px;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.skillCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--skill-color);
+  background: linear-gradient(135deg, var(--skill-color), rgba(255, 255, 255, 0.1));
+  color: white;
+}
+
+.skillIcon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 10px var(--skill-color));
+  flex-shrink: 0;
+}
+
+.skillInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skillName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  text-transform: none;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  word-break: break-word;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  display: block;
+  width: 100%;
+}
+
+.skillDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.skillRank {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.skillExperience {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.skillPercentage {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--skill-color);
+  text-shadow: 0 0 10px var(--skill-color);
+  flex-shrink: 0;
+  text-align: right;
+  min-width: 45px;
+  white-space: nowrap;
+}
+
+/* Welcome Section */
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 3rem;
+}
+
+.welcomeIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcomeTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #00F0FF, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcomeText {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skillsTree {
+    padding: 1rem;
+  }
+  
+  .header {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .roadmapContainer {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .categoriesSidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+  
+  .skillsContent {
+    order: 1;
+    min-height: 50vh;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .categoryItem {
+    padding: 0.8rem;
+  }
+  
+  .categoryIcon {
+    font-size: 1.2rem;
+  }
+  
+  .categoryName {
+    font-size: 0.9rem;
+  }
+  
+  .skillCount {
+    font-size: 0.7rem;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .skillCard {
+    padding: 1rem;
+    min-height: 70px;
+    flex-direction: row;
+  }
+  
+  .skillIcon {
+    font-size: 1.8rem;
+  }
+  
+  .skillName {
+    font-size: 1rem;
+  }
+  
+  .skillDetails {
+    gap: 0.6rem;
+  }
+  
+  .skillRank {
+    font-size: 0.7rem;
+  }
+  
+  .skillExperience {
+    font-size: 0.65rem;
+  }
+  
+  .skillPercentage {
+    font-size: 1.1rem;
+  }
+  
+  .welcomeSection {
+    padding: 2rem;
+  }
+  
+  .welcomeIcon {
+    font-size: 3rem;
+  }
+  
+  .welcomeTitle {
+    font-size: 1.5rem;
+  }
+  
+  .welcomeText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .categoriesSidebar {
+    padding: 1rem;
+  }
+  
+  .sidebarTitle {
+    font-size: 1rem;
+  }
+  
+  .categoryItem {
+    padding: 0.6rem;
+    gap: 0.8rem;
+  }
+  
+  .categoryIcon {
+    font-size: 1rem;
+  }
+  
+  .categoryName {
+    font-size: 0.8rem;
+  }
+  
+  .skillCount {
+    font-size: 0.6rem;
+  }
+  
+  .expandIcon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+  
+  .skillsContent {
+    padding: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 0.9rem;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .skillCard {
+    padding: 0.8rem;
+    min-height: 60px;
+    flex-direction: row;
+  }
+  
+  .skillIcon {
+    font-size: 1.6rem;
+  }
+  
+  .skillName {
+    font-size: 0.9rem;
+  }
+  
+  .skillDetails {
+    gap: 0.5rem;
+  }
+  
+  .skillRank {
+    font-size: 0.7rem;
+  }
+  
+  .skillExperience {
+    font-size: 0.6rem;
+  }
+  
+  .skillPercentage {
+    font-size: 1rem;
+  }
+  
+  .welcomeSection {
+    padding: 1.5rem;
+  }
+  
+  .welcomeIcon {
+    font-size: 2.5rem;
+  }
+  
+  .welcomeTitle {
+    font-size: 1.3rem;
+  }
+  
+  .welcomeText {
+    font-size: 0.9rem;
+  }
+}

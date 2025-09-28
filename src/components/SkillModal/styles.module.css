@@ -1,0 +1,273 @@
+/* SkillModal Styles */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modalBackdrop.visible {
+  opacity: 1;
+}
+
+.modalContent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid var(--skill-color);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.8) translateY(50px);
+  transition: all 0.3s ease;
+}
+
+.modalContent.visible {
+  transform: scale(1) translateY(0);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.skillIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 20px var(--skill-color));
+  flex-shrink: 0;
+}
+
+.skillInfo {
+  flex: 1;
+}
+
+.skillName {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--skill-color), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skillMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skillPercentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--skill-color);
+  text-shadow: 0 0 10px var(--skill-color);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modalBody {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modalBody h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--skill-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modalBody p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.modalBody ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modalBody li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.modalBody li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--skill-color);
+  font-size: 0.8rem;
+}
+
+.relatedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.relatedItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.relatedItem:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: #00F0FF;
+  transform: translateY(-2px);
+}
+
+.relatedIcon {
+  font-size: 1rem;
+}
+
+.relatedName {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.modalFooter {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.skillLevel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.levelLabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.levelBar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.levelFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--skill-color), rgba(255, 255, 255, 0.3));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.levelFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.levelPercentage {
+  color: var(--skill-color);
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modalContent {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .modalHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .skillName {
+    font-size: 1.5rem;
+  }
+  
+  .skillMeta {
+    justify-content: center;
+  }
+  
+  .modalBody {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .skillLevel {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .levelLabel {
+    min-width: auto;
+    text-align: center;
+  }
+}

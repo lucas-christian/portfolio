@@ -1,0 +1,93 @@
+/* RankBadge Styles */
+.rankBadge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--rank-color), rgba(255, 255, 255, 0.1));
+  border: 2px solid var(--rank-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 0 20px var(--glow-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rankBadge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.rankBadge:hover::before {
+  left: 100%;
+}
+
+.rankBadge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--glow-color);
+}
+
+.rankSymbol {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 10px var(--rank-color);
+  line-height: 1;
+}
+
+.rankLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* Size Variants */
+.small {
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.small .rankSymbol {
+  font-size: 0.9rem;
+}
+
+.small .rankLabel {
+  font-size: 0.5rem;
+}
+
+.medium {
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.medium .rankSymbol {
+  font-size: 1.2rem;
+}
+
+.medium .rankLabel {
+  font-size: 0.6rem;
+}
+
+.large {
+  padding: 0.8rem;
+  border-radius: 16px;
+}
+
+.large .rankSymbol {
+  font-size: 1.8rem;
+}
+
+.large .rankLabel {
+  font-size: 0.8rem;
+}
