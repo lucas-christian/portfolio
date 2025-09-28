@@ -1,0 +1,454 @@
+/* === EXPERIENCE SECTION === */
+.experienceSection {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 6rem 2rem;
+  background: 
+    radial-gradient(800px 400px at 50% 0%, rgba(0, 240, 255, 0.06), transparent 70%),
+    linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.03) 50%, transparent 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.experienceSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(0, 240, 255, 0.01) 50%, transparent 70%);
+  animation: experienceBackgroundShift 10s ease-in-out infinite;
+  z-index: 1;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.headerIcon {
+  color: var(--glowing-border);
+  animation: iconPulse 8s ease-in-out infinite;
+}
+
+.sectionTitle {
+  font-family: var(--font-orbitron);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--glowing-border);
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  letter-spacing: 2px;
+}
+
+/* === TIMELINE HORIZONTAL === */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--glowing-border) 0%, 
+    rgba(0, 240, 255, 0.6) 50%, 
+    rgba(60, 229, 252, 0.4) 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  z-index: 1;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1!important;
+}
+
+.timelineMarker {
+  width: 60px;
+  height: 60px;
+  background: var(--background);
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  cursor: pointer;
+}
+
+.timelineMarker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+}
+
+.timelineMarker:active {
+  transform: scale(1.1);
+}
+
+.markerIcon {
+  color: var(--foreground);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+/* === TOOLTIP === */
+.tooltip {
+  background: rgba(15, 23, 42, 1);
+  border: 1px solid var(--glowing-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow:
+    0 8px 25px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.2);
+  z-index: 1000;
+  max-width: 300px;
+  animation: tooltipFadeIn 0.2s ease-out;
+  will-change: transform;
+  transform-origin: center;
+}
+
+.tooltipTitle {
+  font-family: var(--font-orbitron);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--glowing-border);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+  text-align: center;
+}
+
+.tooltipPeriod {
+  display: block;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tooltipDescription {
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: justify;
+}
+
+.tooltipArrow {
+  fill: var(--glowing-border);
+}
+
+/* === STATUS STYLES === */
+.timelineItem.completed .timelineMarker {
+  background: linear-gradient(135deg, #1a4d3a, #2d7a4f);
+  border-color: #4ade80;
+  opacity: 1;
+  box-shadow: 
+    0 0 20px rgba(74, 222, 128, 0.4),
+    0 0 40px rgba(74, 222, 128, 0.2),
+    inset 0 0 10px rgba(74, 222, 128, 0.1);
+}
+
+.timelineItem.completed .markerIcon {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+}
+
+.timelineItem.current .timelineMarker {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-color: var(--glowing-border);
+  opacity: 1;
+  animation: currentPulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 25px rgba(0, 240, 255, 0.6),
+    0 0 50px rgba(0, 240, 255, 0.3),
+    inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.timelineItem.current .markerIcon {
+  color: var(--glowing-border);
+  animation: currentIconPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+}
+
+.timelineItem.future .timelineMarker {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border-color: rgba(0, 240, 255, 0.3);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.timelineItem.future .markerIcon {
+  color: rgba(0, 240, 255, 0.5);
+}
+
+/* === ANIMATIONS === */
+@keyframes experienceBackgroundShift {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(0px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(10px);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 90% {
+    transform: scale(1);
+  }
+  95%, 100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes markerPulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes currentPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px rgba(0, 240, 255, 0.6),
+      0 0 50px rgba(0, 240, 255, 0.3),
+      inset 0 0 15px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 35px rgba(0, 240, 255, 0.8),
+      0 0 70px rgba(0, 240, 255, 0.5),
+      inset 0 0 20px rgba(0, 240, 255, 0.2);
+  }
+}
+
+@keyframes currentIconPulse {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(0, 240, 255, 1), 0 0 35px rgba(0, 240, 255, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes tooltipFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === SCROLL REVEAL === */
+.sectionHeader:not(.reveal),
+.timeline:not(.reveal) {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+.reveal {
+  animation: scrollReveal 0.8s ease-out forwards;
+}
+
+@keyframes scrollReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .experienceSection {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .timeline {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    position: relative;
+  }
+  
+  .timelineLine {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .timelineItem {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .timelineItem:hover {
+    transform: translateY(-5px);
+  }
+  
+  .timelineMarker {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+  
+  .tooltip {
+    max-width: 280px;
+  }
+  
+  /* Estilos do tooltip movidos para o seletor principal */
+  
+  /* Status styles para mobile */
+  .timelineItem.completed .timelineMarker {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a4d3a, #2d7a4f);
+    border-color: #4ade80;
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+  }
+  
+  .timelineItem.current .timelineMarker {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1e3a8a, #1e40af);
+    border-color: #3b82f6;
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  }
+  
+  .timelineItem.future .timelineMarker {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #374151, #4b5563);
+    border-color: rgba(0, 240, 255, 0.3);
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceSection {
+    padding: 2rem 0.5rem;
+    min-height: 100vh;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .timeline {
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .timelineItem {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .timelineMarker {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .tooltipTitle {
+    font-size: 1.1rem;
+  }
+  
+  .tooltipDescription {
+    font-size: 0.9rem;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .experienceSection::before,
+  .headerIcon,
+  .markerIcon,
+  .timelineItem.current .timelineMarker,
+  .timelineItem.current .markerIcon,
+  .tooltipContent {
+    animation: none;
+  }
+  
+  .experienceSection::before {
+    opacity: 0.3;
+  }
+  
+  .sectionHeader:not(.reveal),
+  .timeline:not(.reveal) {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .timelineItem.current .timelineMarker {
+    box-shadow: 
+      0 0 25px rgba(0, 240, 255, 0.6),
+      0 0 50px rgba(0, 240, 255, 0.3),
+      inset 0 0 15px rgba(0, 240, 255, 0.1);
+  }
+  
+  .timelineItem.current .markerIcon {
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+    transform: scale(1);
+  }
+}

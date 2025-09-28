@@ -47,18 +47,25 @@ export const enUS = {
   },
 
   experience: {
-    title: "Professional Experience",
+    title: "Experience",
     technologies: "Technologies",
     responsibilities: "Responsibilities",
     "view-github": "View company on Github",
     "view-website": "View company website",
     "mstore-digital": {
       description: "MStore Digital LTDA is a Software Development company, which aims to provide software that makes people's lives easier in different areas. Our mission is to create innovative solutions that simplify everyday tasks and improve the efficiency of companies and individuals. Furthermore, we are committed to using cutting-edge technologies, including artificial intelligence, to develop projects that are at the forefront of innovation.",
-      responsibilities: "Interface development, microservices for email sending, WhatsApp communication, Discord bots, MercadoPago payments (Pix, bank slip and credit card)."
+      responsibilities: "Interface development, microservices for email sending, WhatsApp communication, Discord bots, MercadoPago payments (Pix, bank slip and credit card).",
+      date: "Jan. 2024 - Jan. 2025"
     },
     soublox: {
       description: "Soublox is an official Salesforce partner consultancy, specialized in implementing and providing technical support for CRM solutions. Our mission is to optimize sales team performance, ensuring efficient and profitable use of the Salesforce platform. We develop native solutions like docu2.me, chatt2.me, timer2.me, leads2.me and shuffle2.me, which accelerate processes, reduce costs and increase company productivity. With a Salesforce certified team, we are committed to integrating, optimizing and scaling businesses effectively and securely.",
-      responsibilities: "I work on backend solution development, creating and maintaining APIs, integrations and systems that ensure scalability, security and efficiency."
+      responsibilities: "I work on backend solution development, creating and maintaining APIs, integrations and systems that ensure scalability, security and efficiency.",
+      date: "Sep. 2025 - Present"
+    },
+    future: {
+      description: "Next challenges and career opportunities",
+      responsibilities: "Explore new technologies, take on greater responsibilities, grow professionally",
+      date: "Future"
     }
   },
 

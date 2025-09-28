@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { TerminalIntro } from "../components/TerminalIntro";
 import { HeroSection } from "../components/HeroSection";
+import { ExperienceSection } from "../components/ExperienceSection";
 import styles from "./page.module.css";
 import { SocialSection } from "../components/SocialSection";
 
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection />
+      <ExperienceSection />
       <SocialSection />
     </div>
   );

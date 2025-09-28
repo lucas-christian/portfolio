@@ -47,18 +47,25 @@ export const ptBR = {
   },
 
   experience: {
-    title: "Experiência Profissional",
+    title: "Experiência",
     technologies: "Tecnologias",
     responsibilities: "Responsabilidades",
     "view-github": "Ver empresa no Github",
     "view-website": "Ver site da empresa",
     "mstore-digital": {
       description: "A MStore Digital LTDA é uma empresa de Desenvolvimento de Software, que tem como objetivo fornecer software que facilite a vida das pessoas em diferentes áreas. Nossa missão é criar soluções inovadoras que simplifiquem tarefas cotidianas e melhorem a eficiência de empresas e indivíduos. Além disso, estamos comprometidos em usar tecnologias de ponta, incluindo inteligência artificial, para desenvolver projetos que estão na vanguarda da inovação.",
-      responsibilities: "Desenvolvimento de interfaces, microsserviços para envio de e-mails, comunicação via WhatsApp, bots para Discord, pagamentos com MercadoPago (Pix, boleto e cartão de crédito)."
+      responsibilities: "Desenvolvimento de interfaces, microsserviços para envio de e-mails, comunicação via WhatsApp, bots para Discord, pagamentos com MercadoPago (Pix, boleto e cartão de crédito).",
+      date: "Jan. de 2024 - Jan. de 2025"
     },
     soublox: {
       description: "A Soublox é uma consultoria parceira oficial da Salesforce, especializada na implementação e suporte técnico de soluções CRM. Nossa missão é otimizar o desempenho das equipes de vendas, garantindo uma utilização eficiente e rentável da plataforma Salesforce. Desenvolvemos soluções nativas como docu2.me, chatt2.me, timer2.me, leads2.me e shuffle2.me, que aceleram processos, reduzem custos e aumentam a produtividade das empresas. Com uma equipe certificada pela Salesforce, nos comprometemos a integrar, otimizar e escalar negócios de maneira eficaz e segura.",
-      responsibilities: "Atuo no desenvolvimento de soluções backend, criando e mantendo APIs, integrações e sistemas que garantem escalabilidade, segurança e eficiência."
+      responsibilities: "Atuo no desenvolvimento de soluções backend, criando e mantendo APIs, integrações e sistemas que garantem escalabilidade, segurança e eficiência.",
+      date: "Set. de 2025 - Presente"
+    },
+    future: {
+      description: "Próximos desafios e oportunidades na carreira",
+      responsibilities: "Explorar novas tecnologias, assumir maiores responsabilidades, crescer profissionalmente",
+      date: "Futuro"
     }
   },
 

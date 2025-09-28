@@ -21,7 +21,7 @@ export const SocialSection = () => {
   return (
     <div className={styles.socialSection} ref={socialRef as any}>
       <div className={`${styles.socialTitle} ${socialVisible ? styles.reveal : ''}`}>
-        <Terminal size={16} className={styles.socialTitleIcon} />
+        <Terminal size={32} className={styles.socialTitleIcon} />
         <span>{t("home.connections")}</span>
       </div>
       <div className={`${styles.socialLinks} ${socialVisible ? styles.reveal : ''}`}>
