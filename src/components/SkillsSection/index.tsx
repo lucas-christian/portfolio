@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { skillsData, skillCategories, rankConfig, Skill } from '@data/skills';
 import { SkillModal } from '../SkillModal';
 import { ParticleSystem } from '../ParticleSystem';
+import { useAnimationClasses } from '../../hooks/useAnimationClasses';
 import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, TreePine, GitBranch, GitCommit, GitFork } from 'lucide-react';
 import styles from './styles.module.css';
 
@@ -18,6 +19,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { animationClasses } = useAnimationClasses();
 
   // Animação de entrada escalonada
   useEffect(() => {
@@ -88,7 +90,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
 
 
   return (
-    <div className={`${styles.skillsTree} ${className}`} ref={containerRef}>
+    <div className={`${styles.skillsTree} ${className} ${animationClasses}`} ref={containerRef}>
       {/* Background Effects */}
       <div className={styles.backgroundEffects}>
         <div className={styles.gridPattern} />

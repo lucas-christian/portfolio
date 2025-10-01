@@ -177,6 +177,119 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === CONTROLE DE ANIMAÇÕES === */
+
+/* === ANIMAÇÕES BASE (quando habilitadas) === */
+.particle {
+  animation: float 6s ease-in-out infinite, particlePulse 3s ease-in-out infinite;
+}
+
+.mainTitle {
+  animation: titleFloat 3s ease-in-out infinite alternate, neonPulse 10s ease-in-out infinite;
+}
+
+.missionBadge {
+  animation: badgeFloat 2s ease-in-out infinite alternate, fadeInUp 1s ease-out 0.7s both;
+}
+
+.imageContainer {
+  animation: imageFloat 4s ease-in-out infinite;
+}
+
+.card {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+.descriptionCard {
+  animation: descriptionFloat 4s ease-in-out infinite;
+}
+
+/* === CONTROLE FLOATING & GLOW (unificado) - ALTA ESPECIFICIDADE === */
+.no-floating-and-glow-animations .mainTitle,
+.no-floating-and-glow-animations .missionBadge,
+.no-floating-and-glow-animations .imageContainer,
+.no-floating-and-glow-animations .card,
+.no-floating-and-glow-animations .descriptionCard,
+.no-floating-and-glow-animations .particle,
+.no-floating-and-glow-animations .orb,
+.no-floating-and-glow-animations .orb1,
+.no-floating-and-glow-animations .orb2,
+.no-floating-and-glow-animations .orb3,
+.no-floating-and-glow-animations .welcomeIcon,
+.no-floating-and-glow-animations .terminal,
+.no-floating-and-glow-animations .profileImage,
+.no-floating-and-glow-animations .titleFloat,
+.no-floating-and-glow-animations .subtitleFloat,
+.no-floating-and-glow-animations .buttonFloat,
+.no-floating-and-glow-animations .gridBackground,
+.no-floating-and-glow-animations .gridPattern,
+.no-floating-and-glow-animations .gridOverlay,
+.no-floating-and-glow-animations .socialLink,
+.no-floating-and-glow-animations .socialTitle,
+.no-floating-and-glow-animations .socialTitleIcon,
+.no-floating-and-glow-animations .headerIcon,
+.no-floating-and-glow-animations .timelineItem.current .timelineMarker,
+.no-floating-and-glow-animations .timelineItem.current .markerIcon,
+.no-floating-and-glow-animations .settingsGlow,
+.no-floating-and-glow-animations .badgeIcon,
+.no-floating-and-glow-animations .descriptionHeader,
+.no-floating-and-glow-animations .descriptionIcon,
+.no-floating-and-glow-animations .cardIcon {
+  animation: none !important;
+}
+
+/* === SOBRESCREVER ANIMAÇÕES DOS MÓDULOS CSS === */
+.no-floating-and-glow-animations [class*="mainTitle"],
+.no-floating-and-glow-animations [class*="missionBadge"],
+.no-floating-and-glow-animations [class*="imageContainer"],
+.no-floating-and-glow-animations [class*="card"],
+.no-floating-and-glow-animations [class*="descriptionCard"],
+.no-floating-and-glow-animations [class*="particle"],
+.no-floating-and-glow-animations [class*="orb"],
+.no-floating-and-glow-animations [class*="orb1"],
+.no-floating-and-glow-animations [class*="orb2"],
+.no-floating-and-glow-animations [class*="orb3"],
+.no-floating-and-glow-animations [class*="welcomeIcon"],
+.no-floating-and-glow-animations [class*="terminal"],
+.no-floating-and-glow-animations [class*="profileImage"],
+.no-floating-and-glow-animations [class*="titleFloat"],
+.no-floating-and-glow-animations [class*="subtitleFloat"],
+.no-floating-and-glow-animations [class*="buttonFloat"],
+.no-floating-and-glow-animations [class*="gridBackground"],
+.no-floating-and-glow-animations [class*="gridPattern"],
+.no-floating-and-glow-animations [class*="gridOverlay"],
+.no-floating-and-glow-animations [class*="socialLink"],
+.no-floating-and-glow-animations [class*="socialTitle"],
+.no-floating-and-glow-animations [class*="socialTitleIcon"],
+.no-floating-and-glow-animations [class*="headerIcon"],
+.no-floating-and-glow-animations [class*="timelineItem"] [class*="timelineMarker"],
+.no-floating-and-glow-animations [class*="timelineItem"] [class*="markerIcon"],
+.no-floating-and-glow-animations [class*="settingsGlow"],
+.no-floating-and-glow-animations [class*="badgeIcon"],
+.no-floating-and-glow-animations [class*="descriptionHeader"],
+.no-floating-and-glow-animations [class*="descriptionIcon"],
+.no-floating-and-glow-animations [class*="cardIcon"] {
+  animation: none !important;
+}
+
+.no-particle-animations .particle,
+.no-particle-animations .particles,
+.no-particle-animations .particleSystem,
+.no-particle-animations canvas {
+  display: none !important;
+}
+
+
+/* === OCULTAR GRID NO MOBILE === */
+@media (max-width: 768px) {
+  .gridBackground,
+  .gridPattern,
+  .gridOverlay {
+    display: none !important;
+  }
+}
+
+/* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

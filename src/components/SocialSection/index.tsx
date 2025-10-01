@@ -1,5 +1,6 @@
 import { Terminal } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
+import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
@@ -8,6 +9,7 @@ import Image from "next/image";
 export const SocialSection = () => {
   const { t } = useLang();
   const { ref: socialRef, isVisible: socialVisible } = useScrollReveal({ threshold: 0.2 });
+  const { animationClasses } = useAnimationClasses();
 
   const socialLinks = [
     { id: 0, icon: () => <Image src="/icons/github.svg" alt="GitHub" width={24} height={24} className={styles.socialIcon} />, label: "GitHub", url: "https://github.com/Lucas-Christian" },
@@ -19,7 +21,7 @@ export const SocialSection = () => {
   ];
 
   return (
-    <div className={styles.socialSection} ref={socialRef as any}>
+    <div className={`${styles.socialSection} ${animationClasses}`} ref={socialRef as any}>
       <div className={`${styles.socialTitle} ${socialVisible ? styles.reveal : ''}`}>
         <Terminal size={32} className={styles.socialTitleIcon} />
         <span>{t("home.connections")}</span>

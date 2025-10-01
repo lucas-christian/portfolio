@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { useAnimationClasses } from '../../hooks/useAnimationClasses';
 import styles from './styles.module.css';
 
 export const ParticleSystem: React.FC = () => {
+  const { animationClasses } = useAnimationClasses();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
   const particlesRef = useRef<Array<{
@@ -123,7 +125,7 @@ export const ParticleSystem: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className={styles.particleSystem}
+      className={`${styles.particleSystem} ${animationClasses}`}
       style={{
         position: 'absolute',
         top: 0,

@@ -1,6 +1,7 @@
 import { Briefcase, GraduationCap, Code, Star } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useState, useEffect, useMemo } from "react";
 import styles from "./styles.module.css";
@@ -9,6 +10,7 @@ import { experiences } from "../../data/experiences";
 export const ExperienceSection = () => {
   const { t } = useLang();
   const { ref: experienceRef, isVisible: experienceVisible } = useScrollReveal({ threshold: 0.2 });
+  const { animationClasses } = useAnimationClasses();
   const [isMobile, setIsMobile] = useState(false);
   const [openTooltip, setOpenTooltip] = useState<number | null>(null);
 
@@ -45,7 +47,7 @@ export const ExperienceSection = () => {
       skipDelayDuration={0}
       disableHoverableContent={false}
     >
-      <section className={styles.experienceSection} ref={experienceRef as any}>
+      <section className={`${styles.experienceSection} ${animationClasses}`} ref={experienceRef as any}>
         <div className={`${styles.sectionHeader} ${experienceVisible ? styles.reveal : ''}`}>
           <Briefcase size={48} className={styles.headerIcon} />
           <h2 className={styles.sectionTitle}>{t("experience.title")}</h2>

@@ -2,6 +2,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Terminal, Play } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
+import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import { Particles } from "../Particles";
 import styles from "./styles.module.css";
 
@@ -11,6 +12,7 @@ interface TerminalIntroProps {
 
 export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
   const { t } = useLang();
+  const { animationClasses } = useAnimationClasses();
   
   const terminalLines = useMemo(() => [
     t("terminal.lines.0"),
@@ -58,7 +60,7 @@ export const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
   }, [currentLine, onComplete, isMounted, terminalLines]);
 
   return (
-    <div className={styles.terminalIntro}>
+    <div className={`${styles.terminalIntro} ${animationClasses}`}>
       {/* Fundo futurista */}
       <div className={styles.background}>
         <div className={styles.gridOverlay}></div>

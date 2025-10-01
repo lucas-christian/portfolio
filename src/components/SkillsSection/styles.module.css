@@ -613,6 +613,10 @@
   .welcomeText {
     font-size: 1rem;
   }
+  
+  .gridPattern {
+    animation: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -738,5 +742,9 @@
   /* Manter apenas animações suaves */
   .skillCard {
     animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .gridPattern {
+    animation: none;
   }
 }

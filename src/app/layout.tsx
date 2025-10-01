@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { LangProvider } from "@context/LangContext/LangProvider";
 import { Lang } from "@utils/langUtils";
 import { ThemeProvider } from "@context/ThemeContext/ThemeProvider";
+import { AnimationProvider } from "@context/AnimationContext/AnimationProvider";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
@@ -124,7 +125,9 @@ export default async function RootLayout({
       <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable}`}>
         <LangProvider language={lang as Lang}>
           <ThemeProvider>
-            {children}
+            <AnimationProvider>
+              {children}
+            </AnimationProvider>
           </ThemeProvider>
         </LangProvider>
       </body>

@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { Settings, Globe, Sun, Moon, Monitor, Check } from "lucide-react";
+import { Settings, Globe, Sun, Moon, Monitor, Check, Zap, Sparkles, Move } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
 import { useTheme } from "../../hooks/useTheme";
+import { useAnimation } from "../../hooks/useAnimation";
+import { useIsMobile } from "../../hooks/useIsMobile";
 import { Lang } from "@utils/langUtils";
 import Image from "next/image";
 import styles from "./styles.module.css";
@@ -10,6 +12,8 @@ import styles from "./styles.module.css";
 export const FloatingSettings = () => {
   const { lang, changeLanguage } = useLang();
   const { theme, setTheme } = useTheme();
+  const { preferences, toggleFloatAndGlowAnimations, toggleParticleAnimations } = useAnimation();
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -104,6 +108,34 @@ export const FloatingSettings = () => {
                 <span className={styles.themeText}>Sistema</span>
                 {theme === 'system' && <Check size={16} className={styles.checkIcon} />}
               </button>
+            </div>
+          </div>
+
+          {/* Seção de Animações */}
+          <div className={styles.settingsSection}>
+            <div className={styles.sectionTitle}>
+              <Zap size={16} />
+              <span>ANIMAÇÕES</span>
+            </div>
+            <div className={styles.themeOptions}>
+              <button
+                className={`${styles.themeOption} ${preferences.enableFloatAndGlowAnimations ? styles.active : ''}`}
+                onClick={toggleFloatAndGlowAnimations}
+              >
+                <Move size={20} className={styles.themeIcon} />
+                <span className={styles.themeText}>Flutuação, Brilho & Grid</span>
+                {preferences.enableFloatAndGlowAnimations && <Check size={16} className={styles.checkIcon} />}
+              </button>
+              
+              <button
+                className={`${styles.themeOption} ${preferences.enableParticleAnimations ? styles.active : ''}`}
+                onClick={toggleParticleAnimations}
+              >
+                <Zap size={20} className={styles.themeIcon} />
+                <span className={styles.themeText}>Partículas</span>
+                {preferences.enableParticleAnimations && <Check size={16} className={styles.checkIcon} />}
+              </button>
+              
             </div>
           </div>
         </div>

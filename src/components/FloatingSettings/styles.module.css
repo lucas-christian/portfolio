@@ -30,7 +30,6 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: settingsFloat 3s ease-in-out infinite;
   backdrop-filter: blur(10px);
 }
 
@@ -76,6 +75,7 @@
   top: 70px;
   right: 0;
   width: 280px;
+  max-height: 70vh;
   background: var(--container-bg);
   border: 1px solid var(--border);
   border-radius: 15px;
@@ -84,6 +84,28 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   animation: menuSlideIn 0.3s ease-out;
   z-index: 1001;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado para o menu */
+.settingsMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.settingsMenu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.settingsMenu::-webkit-scrollbar-thumb {
+  background: var(--glowing-border);
+  border-radius: 3px;
+  opacity: 0.6;
+}
+
+.settingsMenu::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
 }
 
 .menuHeader {
@@ -231,16 +253,6 @@
   z-index: 999;
 }
 
-/* === ANIMAÇÕES === */
-@keyframes settingsFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
 @keyframes settingsPulse {
   0%, 100% {
     opacity: 0.3;
@@ -289,6 +301,7 @@
   
   .settingsMenu {
     width: 260px;
+    max-height: 60vh;
     top: 60px;
     right: -10px;
   }
@@ -297,6 +310,7 @@
 @media (max-width: 480px) {
   .settingsMenu {
     width: 240px;
+    max-height: 50vh;
     right: -20px;
   }
   
