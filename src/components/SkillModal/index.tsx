@@ -1,16 +1,19 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Skill, rankConfig } from '@data/skills';
+import { Skill, rankConfig, skillsData } from '@data/skills';
 import { RankBadge } from '../RankBadge';
+import { useLang } from '../../hooks/useLang';
 import styles from './styles.module.css';
 
 interface SkillModalProps {
   skill: Skill;
   onClose: () => void;
+  onRelatedSkillClick?: (skillId: string) => void;
 }
 
-export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
+export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose, onRelatedSkillClick }) => {
+  const { t } = useLang();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -26,6 +29,19 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
   const handleClose = () => {
     setIsVisible(false);
     setTimeout(onClose, 300);
+  };
+
+  const handleRelatedSkillClick = (relatedSkill: string) => {
+    // Verificar se a skill relacionada existe no nosso array de skills
+    const skillExists = skillsData.find(s => s.name.toLowerCase() === relatedSkill.toLowerCase());
+    
+    if (skillExists && onRelatedSkillClick) {
+      onRelatedSkillClick(skillExists.id);
+    }
+  };
+
+  const isRelatedSkillClickable = (relatedSkill: string) => {
+    return skillsData.some(s => s.name.toLowerCase() === relatedSkill.toLowerCase());
   };
 
   const rankInfo = rankConfig[skill.rank];
@@ -70,21 +86,21 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
         {/* Content */}
         <div className={styles.modalBody}>
           <div className={styles.skillDescription}>
-            <h3>Descrição</h3>
-            <p>{skill.description}</p>
+            <h3>{t('skills.modal.description')}</h3>
+            <p>{t(skill.descriptionKey)}</p>
           </div>
 
           <div className={styles.skillExperience}>
-            <h3>Experiência</h3>
-            <p>{skill.experience}</p>
+            <h3>{t('skills.modal.experience')}</h3>
+            <p>{t(skill.experienceKey)}</p>
           </div>
 
           {skill.projects && skill.projects.length > 0 && (
             <div className={styles.skillProjects}>
-              <h3>Projetos</h3>
+              <h3>{t('skills.modal.projects')}</h3>
               <ul>
                 {skill.projects.map((project, index) => (
-                  <li key={index}>{project}</li>
+                  <li key={index}>{project.startsWith('skills.') ? t(project) : project}</li>
                 ))}
               </ul>
             </div>
@@ -92,7 +108,7 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
 
           {skill.certifications && skill.certifications.length > 0 && (
             <div className={styles.skillCertifications}>
-              <h3>Certificações</h3>
+              <h3>{t('skills.modal.certifications')}</h3>
               <ul>
                 {skill.certifications.map((cert, index) => (
                   <li key={index}>{cert}</li>
@@ -103,14 +119,23 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
 
           {skill.relatedSkills && skill.relatedSkills.length > 0 && (
             <div className={styles.relatedSkills}>
-              <h3>Skills Relacionadas</h3>
+              <h3>{t('skills.modal.related-skills')}</h3>
               <div className={styles.relatedList}>
-                {skill.relatedSkills.map((relatedSkill, index) => (
-                  <div key={index} className={styles.relatedItem}>
-                    <span className={styles.relatedIcon}>🔗</span>
-                    <span className={styles.relatedName}>{relatedSkill}</span>
-                  </div>
-                ))}
+                {skill.relatedSkills.map((relatedSkill, index) => {
+                  const isClickable = isRelatedSkillClickable(relatedSkill);
+                  return (
+                    <div 
+                      key={index} 
+                      className={`${styles.relatedItem} ${isClickable ? styles.clickable : styles.disabled}`}
+                      onClick={() => isClickable && handleRelatedSkillClick(relatedSkill)}
+                    >
+                      <span className={styles.relatedIcon}>
+                        {isClickable ? '🔗' : '🔒'}
+                      </span>
+                      <span className={styles.relatedName}>{relatedSkill}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -119,7 +144,7 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
         {/* Footer */}
         <div className={styles.modalFooter}>
           <div className={styles.skillLevel}>
-            <span className={styles.levelLabel}>Nível de Proficiência:</span>
+            <span className={styles.levelLabel}>{t('skills.modal.proficiency-level')}</span>
             <div className={styles.levelBar}>
               <div 
                 className={styles.levelFill}

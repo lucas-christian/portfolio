@@ -91,7 +91,69 @@ export const ptBR = {
 
   skills: {
     title: "Habilidades",
-    "coming-soon": "Em breve"
+    "coming-soon": "Em breve",
+    "click-categories": "Clique nas categorias para explorar",
+    "search-placeholder": "Buscar skills...",
+    "categories": "Categorias",
+    "skills-available": "tecnologias disponíveis",
+    "select-category": "Selecione uma Categoria",
+    "choose-category": "Escolha uma categoria ao lado para explorar suas skills e tecnologias",
+    "skills": "Skills",
+    "descriptions": {
+      "typescript": "JavaScript com tipagem estática para desenvolvimento robusto",
+      "nestjs": "Framework Node.js para aplicações server-side escaláveis",
+      "git": "Sistema de controle de versão distribuído",
+      "github": "Plataforma de hospedagem e colaboração em código",
+      "javascript": "Linguagem principal para desenvolvimento full-stack",
+      "react": "Biblioteca para interfaces de usuário interativas",
+      "nextjs": "Framework React para aplicações de produção",
+      "html5": "Linguagem de marcação para estrutura web",
+      "css3": "Linguagem de estilo para design web",
+      "tailwindcss": "Framework CSS utilitário para design rápido",
+      "sass": "Pré-processador CSS para estilos mais eficientes",
+      "nodejs": "Runtime JavaScript para desenvolvimento backend",
+      "express": "Framework web minimalista para Node.js",
+      "postgresql": "Banco de dados relacional robusto",
+      "mongodb": "Banco de dados NoSQL flexível",
+      "redis": "Banco de dados em memória para cache",
+      "aws": "Serviços de nuvem da Amazon Web Services",
+      "docker": "Containerização de aplicações",
+      "vercel": "Plataforma de deploy para frontend e full-stack",
+      "react-native": "Framework para desenvolvimento de aplicações móveis",
+      "expo": "Framework para desenvolvimento de aplicações móveis",
+      "flutter": "Framework para desenvolvimento mobile multiplataforma",
+      "vscode": "Editor de código mais popular",
+      "cursor": "Editor de código principal",
+      "figma": "Ferramenta de design de interfaces",
+      "postman": "Ferramenta para teste e documentação de APIs",
+      "jest": "Framework de testes JavaScript",
+      "cypress": "Framework de testes end-to-end",
+      "eslint": "Ferramenta de análise de código JavaScript",
+      "prettier": "Formatador de código para consistência"
+    },
+    "experience": {
+      "3+ years": "3+ anos",
+      "1+ years": "1+ anos",
+      "4+ years": "4+ anos",
+      "2+ years": "2+ anos",
+      "6+ months": "6+ meses",
+      "3+ months": "3+ meses",
+      "2+ months": "2+ meses",
+      "3+ months": "3+ meses"
+    },
+    "projects": {
+      "all-projects": "Todos os projetos",
+      "almost-all-projects": "Quase todos os projetos",
+      "learning-projects": "Projetos em aprendizado"
+    },
+    "modal": {
+      "description": "Descrição",
+      "experience": "Experiência",
+      "projects": "Projetos",
+      "certifications": "Certificações",
+      "related-skills": "Skills Relacionadas",
+      "proficiency-level": "Nível de Proficiência:"
+    }
   },
 
   contact: {

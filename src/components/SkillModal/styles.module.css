@@ -174,12 +174,28 @@
   border: 1px solid rgba(0, 240, 255, 0.2);
   border-radius: 20px;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
-.relatedItem:hover {
+.relatedItem.clickable {
+  cursor: pointer;
+}
+
+.relatedItem.clickable:hover {
   background: rgba(0, 240, 255, 0.1);
   border-color: #00F0FF;
   transform: translateY(-2px);
+}
+
+.relatedItem.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.relatedItem.disabled:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 240, 255, 0.2);
+  transform: none;
 }
 
 .relatedIcon {

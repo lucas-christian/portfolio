@@ -91,7 +91,68 @@ export const enUS = {
 
   skills: {
     title: "Skills",
-    "coming-soon": "Coming soon"
+    "coming-soon": "Coming soon",
+    "click-categories": "Click on categories to explore",
+    "search-placeholder": "Search skills...",
+    "categories": "Categories",
+    "skills-available": "technologies available",
+    "select-category": "Select a Category",
+    "choose-category": "Choose a category on the side to explore your skills and technologies",
+    "skills": "Skills",
+    "descriptions": {
+      "typescript": "JavaScript with static typing for robust development",
+      "nestjs": "Node.js framework for scalable server-side applications",
+      "git": "Distributed version control system",
+      "github": "Code hosting and collaboration platform",
+      "javascript": "Main language for full-stack development",
+      "react": "Library for interactive user interfaces",
+      "nextjs": "React framework for production applications",
+      "html5": "Markup language for web structure",
+      "css3": "Style language for web design",
+      "tailwindcss": "Utility-first CSS framework for rapid design",
+      "sass": "CSS preprocessor for more efficient styles",
+      "nodejs": "JavaScript runtime for backend development",
+      "express": "Minimalist web framework for Node.js",
+      "postgresql": "Robust relational database",
+      "mongodb": "Flexible NoSQL database",
+      "redis": "In-memory database for caching",
+      "aws": "Amazon Web Services cloud services",
+      "docker": "Application containerization",
+      "vercel": "Deploy platform for frontend and full-stack",
+      "react-native": "Framework for mobile application development",
+      "expo": "Framework for mobile application development",
+      "flutter": "Cross-platform mobile development framework",
+      "vscode": "Most popular code editor",
+      "cursor": "Main code editor",
+      "figma": "Interface design tool",
+      "postman": "API testing and documentation tool",
+      "jest": "JavaScript testing framework",
+      "cypress": "End-to-end testing framework",
+      "eslint": "JavaScript code analysis tool",
+      "prettier": "Code formatter for consistency"
+    },
+    "experience": {
+      "3+ years": "3+ years",
+      "1+ years": "1+ years",
+      "4+ years": "4+ years",
+      "2+ years": "2+ years",
+      "6+ months": "6+ months",
+      "3+ months": "3+ months",
+      "2+ months": "2+ months"
+    },
+    "projects": {
+      "all-projects": "All projects",
+      "almost-all-projects": "Almost all projects",
+      "learning-projects": "Learning projects"
+    },
+    "modal": {
+      "description": "Description",
+      "experience": "Experience",
+      "projects": "Projects",
+      "certifications": "Certifications",
+      "related-skills": "Related Skills",
+      "proficiency-level": "Proficiency Level:"
+    }
   },
 
   contact: {

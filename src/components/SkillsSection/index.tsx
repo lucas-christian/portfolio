@@ -5,6 +5,7 @@ import { skillsData, skillCategories, rankConfig, Skill } from '@data/skills';
 import { SkillModal } from '../SkillModal';
 import { ParticleSystem } from '../ParticleSystem';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
+import { useLang } from '../../hooks/useLang';
 import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, TreePine, GitBranch, GitCommit, GitFork } from 'lucide-react';
 import styles from './styles.module.css';
 
@@ -13,6 +14,7 @@ interface SkillsSectionProps {
 }
 
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
+  const { t } = useLang();
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -41,6 +43,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
   };
 
   const handleSkillClick = (skillId: string) => {
+    setSelectedSkill(skillId);
+  };
+
+  const handleRelatedSkillClick = (skillId: string) => {
     setSelectedSkill(skillId);
   };
 
@@ -107,10 +113,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
       {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>
-          <span className={styles.titleGlow}><Network size={48} /> Skills</span>
+          <span className={styles.titleGlow}><Network size={48} /> {t('skills.skills')}</span>
         </h2>
         <p className={styles.subtitle}>
-          Clique nas categorias para explorar
+          {t('skills.click-categories')}
         </p>
       </div>
 
@@ -119,7 +125,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
         <div className={styles.searchContainer}>
           <input
             type="text"
-            placeholder="Buscar skills..."
+            placeholder={t('skills.search-placeholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className={styles.searchInput}
@@ -134,7 +140,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
       <div className={styles.roadmapContainer}>
         {/* Categories Sidebar */}
         <div className={styles.categoriesSidebar}>
-          <h3 className={styles.sidebarTitle}>Categorias</h3>
+          <h3 className={styles.sidebarTitle}>{t('skills.categories')}</h3>
           {skillCategories.map((category) => {
             const categorySkills = getCategorySkills(category.id);
             const isExpanded = expandedCategory === category.id;
@@ -179,7 +185,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
                   {skillCategories.find(c => c.id === expandedCategory)?.name} Skills
                 </h2>
                 <p className={styles.sectionSubtitle}>
-                  {getCategorySkills(expandedCategory).length} tecnologias disponíveis
+                  {getCategorySkills(expandedCategory).length} {t('skills.skills-available')}
                 </p>
               </div>
 
@@ -209,7 +215,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
                       <div className={styles.skillName}>{skill.name}</div>
                       <div className={styles.skillDetails}>
                         <div className={styles.skillRank}>{skill.rank}</div>
-                        <div className={styles.skillExperience}>{skill.experience}</div>
+                        <div className={styles.skillExperience}>{t(skill.experienceKey)}</div>
                         <div className={styles.skillPercentage}>{skill.percentage}%</div>
                       </div>
                     </div>
@@ -222,9 +228,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
               <div className={styles.welcomeIcon}>
                 <GitFork size={48} />
               </div>
-              <h2 className={styles.welcomeTitle}>Selecione uma Categoria</h2>
+              <h2 className={styles.welcomeTitle}>{t('skills.select-category')}</h2>
               <p className={styles.welcomeText}>
-                Escolha uma categoria ao lado para explorar suas skills e tecnologias
+                {t('skills.choose-category')}
               </p>
             </div>
           )}
@@ -237,6 +243,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
         <SkillModal
           skill={getFilteredSkills().find(s => s.id === selectedSkill)!}
           onClose={closeModal}
+          onRelatedSkillClick={handleRelatedSkillClick}
         />
       )}
     </div>
