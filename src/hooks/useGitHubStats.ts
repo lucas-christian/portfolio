@@ -12,7 +12,7 @@ interface GitHubStats {
 }
 
 export const useGitHubStats = () => {
-  const [stats, setStats] = useState<GitHubStats>({
+  const [stats, _setStats] = useState<GitHubStats>({
     totalStars: 12,
     totalCommits: 1008,
     totalPRs: 20,
@@ -21,30 +21,6 @@ export const useGitHubStats = () => {
     isLoading: false,
     error: null
   });
-
-  useEffect(() => {
-    const fetchGitHubStats = async () => {
-      try {
-        setStats(prev => ({ ...prev, isLoading: true, error: null }));
-        
-        const data = await getGitHubStats();
-        
-        if (!data) return;
-        
-        setStats({
-          totalStars: data.totalStars || stats.totalStars,
-          totalCommits: data.totalCommits || stats.totalCommits,
-          totalPRs: data.totalPRs || stats.totalPRs,
-          totalContributions: data.totalContributions || stats.totalContributions,
-          rank: data.rank || stats.rank,
-          isLoading: false,
-          error: null
-        });
-      } catch (error) {}
-    };
-
-    fetchGitHubStats();
-  }, []);
 
   return stats;
 };
