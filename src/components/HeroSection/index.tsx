@@ -9,7 +9,7 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useGitHubStats } from "../../hooks/useGitHubStats";
 import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import { FloatingSettings } from "../FloatingSettings";
-import { Particles } from "../Particles";
+import { OptimizedParticles } from "../OptimizedParticles";
 import styles from "./styles.module.css";
 
 export const HeroSection = () => {
@@ -25,8 +25,12 @@ export const HeroSection = () => {
 
   return (
     <section className={`${styles.heroSection} ${animationClasses}`} id="hero">
-      {/* Partículas flutuantes de fundo */}
-      <Particles count={12} />
+      {/* Partículas flutuantes de fundo otimizadas */}
+      <OptimizedParticles 
+        count={12} 
+        pauseWhenHidden={true}
+        mobileOptimized={true}
+      />
 
       {/* Grid de fundo futurista */}
       <div className={styles.gridBackground}></div>
