@@ -104,7 +104,7 @@ export const skillsData: Skill[] = [
     experienceKey: 'skills.experience.3+ years',
     projects: ['Portfolio', 'G4Mix', 'Ofertas Dev Luch'],
     relatedSkills: ['JavaScript', 'Next.js', 'Tailwind CSS'],
-    icon: '/developer-icons/reactjs.svg',
+    icon: '/developer-icons/react.svg',
     color: '#61DAFB',
     glowColor: '#61DAFB'
   },
