@@ -1,9 +1,9 @@
-import { Briefcase, GraduationCap, Code, Star } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { useLang } from "../../hooks/useLang";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { experiences } from "../../data/experiences";
 
@@ -56,7 +56,7 @@ export const ExperienceSection = () => {
         <div className={`${styles.timeline} ${experienceVisible ? styles.reveal : ''}`}>
           <div className={styles.timelineLine}></div>
           
-          {experiences.map((experience, index) => {
+          {experiences.map((experience) => {
             const IconComponent = experience.icon;
             return (
               <Tooltip.Root 

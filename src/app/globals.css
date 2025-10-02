@@ -95,12 +95,12 @@ a {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: linear-gradient(left, #666, #444, #222);
+  background: linear-gradient(to right, #666, #444, #222);
   box-shadow: inset 0 0 1px 1px #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(left, #777, #555, #333);
+  background: linear-gradient(to right, #777, #555, #333);
 }
 
 ::-webkit-scrollbar-corner {
@@ -132,12 +132,12 @@ a {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: linear-gradient(left, #666, #444, #222);
+  background: linear-gradient(to right, #666, #444, #222);
   box-shadow: inset 0 0 1px 1px #888;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(left, #777, #555, #333);
+  background: linear-gradient(to right, #777, #555, #333);
 }
 
 *::-webkit-scrollbar-corner {

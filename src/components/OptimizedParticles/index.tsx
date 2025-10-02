@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
 import { useScrollRender } from '../../hooks/useScrollRender';
 import styles from './styles.module.css';

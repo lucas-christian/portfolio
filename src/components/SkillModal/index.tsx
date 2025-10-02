@@ -5,6 +5,7 @@ import { Skill, rankConfig, skillsData } from '@data/skills';
 import { RankBadge } from '../RankBadge';
 import { useLang } from '../../hooks/useLang';
 import styles from './styles.module.css';
+import Image from 'next/image';
 
 interface SkillModalProps {
   skill: Skill;
@@ -44,8 +45,6 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose, onRelate
     return skillsData.some(s => s.name.toLowerCase() === relatedSkill.toLowerCase());
   };
 
-  const rankInfo = rankConfig[skill.rank];
-
   return (
     <div 
       className={`${styles.modalBackdrop} ${isVisible ? styles.visible : ''}`}
@@ -62,7 +61,7 @@ export const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose, onRelate
         <div className={styles.modalHeader}>
           <div className={styles.skillIcon}>
             {skill.icon ? (
-              <img
+              <Image
                 src={skill.icon}
                 alt={skill.name}
                 className={styles.skillIconImage}

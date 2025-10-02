@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
-import { User, Code, Terminal, Star } from "lucide-react";
+import { User, Code, Star } from "lucide-react";
 import { Container } from "../Container";
 import { Text } from "../Text";
 import Image from "next/image";
 import { useLang } from "../../hooks/useLang";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import { useGitHubStats } from "../../hooks/useGitHubStats";
 import { useAnimationClasses } from "../../hooks/useAnimationClasses";
 import { FloatingSettings } from "../FloatingSettings";
 import { OptimizedParticles } from "../OptimizedParticles";
@@ -14,7 +13,15 @@ import styles from "./styles.module.css";
 
 export const HeroSection = () => {
   const { t } = useLang();
-  const { totalStars, totalCommits, totalPRs, totalContributions, rank, isLoading, error } = useGitHubStats();
+  const { totalStars, totalCommits, totalPRs, totalContributions, rank, isLoading, error } = {
+    totalStars: 12,
+    totalCommits: 1008,
+    totalPRs: 20,
+    totalContributions: 12,
+    rank: 'B-',
+    isLoading: false,
+    error: null
+  };
   const { animationClasses } = useAnimationClasses();
 
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal({ threshold: 0.2 });

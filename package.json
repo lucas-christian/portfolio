@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:analyze": "set ANALYZE=true && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "size": "npm run build && npx @next/bundle-analyzer"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",

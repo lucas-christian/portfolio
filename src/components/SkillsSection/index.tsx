@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { skillsData, skillCategories, rankConfig, Skill } from '@data/skills';
+import React, { useState, useRef } from 'react';
+import { skillsData, skillCategories } from '@data/skills';
 import { SkillModal } from '../SkillModal';
 import { ParticleSystem } from '../ParticleSystem';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
 import { useLang } from '../../hooks/useLang';
-import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, TreePine, GitBranch, GitCommit, GitFork } from 'lucide-react';
+import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, GitFork } from 'lucide-react';
 import styles from './styles.module.css';
 
 interface SkillsSectionProps {
@@ -16,18 +16,10 @@ interface SkillsSectionProps {
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
   const { t } = useLang();
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { animationClasses } = useAnimationClasses();
-
-  // Animação de entrada escalonada
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Filtros e busca
   const getFilteredSkills = () => {
@@ -48,10 +40,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
 
   const handleRelatedSkillClick = (skillId: string) => {
     setSelectedSkill(skillId);
-  };
-
-  const handleSkillHover = (skillId: string | null) => {
-    setHoveredSkill(skillId);
   };
 
   const closeModal = () => {

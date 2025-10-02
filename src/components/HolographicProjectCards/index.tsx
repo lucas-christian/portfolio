@@ -16,13 +16,12 @@ import {
   Code, 
   Database, 
   Cloud,
-  Play,
-  Eye,
   Star,
   ZoomIn,
   X
 } from 'lucide-react';
 import styles from './styles.module.css';
+import Image from 'next/image';
 
 interface HolographicProjectCardsProps {
   className?: string;
@@ -194,7 +193,7 @@ export const HolographicProjectCards: React.FC<HolographicProjectCardsProps> = (
                       className={styles.mobilePreview}
                       onClick={() => openZoomModal(project.mobileImage, project.mobileImageAlt)}
                     >
-                      <img
+                      <Image
                         src={project.mobileImage}
                         alt={project.mobileImageAlt}
                         className={styles.previewImage}
@@ -210,7 +209,7 @@ export const HolographicProjectCards: React.FC<HolographicProjectCardsProps> = (
                       className={styles.desktopPreview}
                       onClick={() => openZoomModal(project.desktopImage, project.desktopImageAlt)}
                     >
-                      <img
+                      <Image
                         src={project.desktopImage}
                         alt={project.desktopImageAlt}
                         className={styles.previewImage}
