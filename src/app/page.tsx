@@ -6,6 +6,7 @@ import { ExperienceSection } from "../components/ExperienceSection";
 import { SkillsSection } from "../components/SkillsSection";
 import styles from "./page.module.css";
 import { SocialSection } from "../components/SocialSection";
+import { ProjectsSection } from "../components/ProjectsSection";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -22,6 +23,7 @@ export default function Home() {
     <div className={styles.page}>
       <HeroSection />
       <ExperienceSection />
+      <ProjectsSection />
       <SkillsSection />
       <SocialSection />
     </div>

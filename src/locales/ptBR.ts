@@ -167,6 +167,20 @@ export const ptBR = {
     sending: "Enviando..."
   },
 
+  projects: {
+    title: "Projetos",
+    subtitle: "Explore meus projetos conectados por tecnologias compartilhadas",
+    "g4mix": {
+      description: "Plataforma de streaming de música com IA para descoberta de novos artistas e geração de playlists personalizadas",
+      responsibilities: "Desenvolvimento full-stack, arquitetura de microserviços, integração com APIs de música",
+      role: "Desenvolvedor Full-Stack & Arquiteto"
+    },
+    "ofertas-dev-luch": {
+      description: "Plataforma de agregação de ofertas de emprego para desenvolvedores com filtros avançados e notificações",
+      responsibilities: "Desenvolvimento frontend, web scraping, integração de APIs, sistema de notificações",
+      role: "Desenvolvedor Full-Stack"
+    }
+  },
   common: {
     loading: "Carregando...",
     error: "Erro",

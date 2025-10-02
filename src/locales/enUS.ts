@@ -166,6 +166,20 @@ export const enUS = {
     sending: "Sending..."
   },
 
+  projects: {
+    title: "Projects",
+    subtitle: "Explore my projects connected by shared technologies",
+    "g4mix": {
+      description: "Music streaming platform with AI for discovering new artists and generating personalized playlists",
+      responsibilities: "Full-stack development, microservices architecture, music API integration",
+      role: "Full-Stack Developer & Architect"
+    },
+    "ofertas-dev-luch": {
+      description: "Job offers aggregation platform for developers with advanced filters and notifications",
+      responsibilities: "Frontend development, web scraping, API integration, notification system",
+      role: "Full-Stack Developer"
+    }
+  },
   common: {
     loading: "Loading...",
     error: "Error",
