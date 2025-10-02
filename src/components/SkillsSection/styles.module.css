@@ -247,6 +247,12 @@
   justify-content: center;
   filter: drop-shadow(0 0 8px var(--category-color));
   color: var(--category-color);
+  transition: all 0.3s ease;
+}
+
+.categoryItem.active .categoryIcon {
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 25px var(--category-color)) drop-shadow(0 0 35px var(--category-color)); /* Dark shadow + glow */
+  transform: scale(1.15); /* Even larger size */
 }
 
 .categoryInfo {
