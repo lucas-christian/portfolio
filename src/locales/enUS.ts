@@ -77,15 +77,16 @@ export const enUS = {
     responsibilities: "Responsibilities",
     "view-github": "View on Github",
     "view-project": "View project",
+    subtitle: "Explore my projects connected by shared technologies",
     g4mix: {
-      description: "G4mix is an open source project focused on developing innovative solutions. The project combines modern technologies to create a robust and scalable platform, with special focus on backend and mobile applications. G4mix aims to democratize access to high-quality development tools, maintaining open source code and an active community of developers.",
-      responsibilities: "Backend development with RESTful APIs, authentication and authorization implementation, database integration, mobile application development with React Native, performance optimization and scalability.",
-      role: "Backend and Mobile Developer"
+      description: "Music streaming platform with AI for discovering new artists and generating personalized playlists",
+      responsibilities: "Full-stack development, microservices architecture, music API integration",
+      role: "Full-Stack Developer & Architect"
     },
     "ofertas-dev-luch": {
-      description: "Ofertas Dev Luch is a personal project focused on finding and notifying users about quality offers in a pleasant and efficient way. The site is currently in beta phase, but already offers an optimized user experience for discovering some promotions.",
-      responsibilities: "Complete full stack development, web scraping system implementation, personalized notifications creation, user interface design and development, external API integration, database management and performance optimization.",
-      role: "Full Stack Developer"
+      description: "Job offers aggregation platform for developers with advanced filters and notifications",
+      responsibilities: "Frontend development, web scraping, API integration, notification system",
+      role: "Full-Stack Developer"
     }
   },
 
@@ -166,20 +167,6 @@ export const enUS = {
     sending: "Sending..."
   },
 
-  projects: {
-    title: "Projects",
-    subtitle: "Explore my projects connected by shared technologies",
-    "g4mix": {
-      description: "Music streaming platform with AI for discovering new artists and generating personalized playlists",
-      responsibilities: "Full-stack development, microservices architecture, music API integration",
-      role: "Full-Stack Developer & Architect"
-    },
-    "ofertas-dev-luch": {
-      description: "Job offers aggregation platform for developers with advanced filters and notifications",
-      responsibilities: "Frontend development, web scraping, API integration, notification system",
-      role: "Full-Stack Developer"
-    }
-  },
   common: {
     loading: "Loading...",
     error: "Error",
