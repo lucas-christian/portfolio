@@ -1,3 +1,4 @@
+import { getGitHubStats } from '@utils/getGithubStats';
 import { useState, useEffect } from 'react';
 
 interface GitHubStats {
@@ -26,11 +27,9 @@ export const useGitHubStats = () => {
       try {
         setStats(prev => ({ ...prev, isLoading: true, error: null }));
         
-        const response = await fetch('/api/github-stats');
+        const data = await getGitHubStats();
         
-        if (!response.ok) return;
-
-        const data = await response.json();
+        if (!data) return;
         
         setStats({
           totalStars: data.totalStars || stats.totalStars,

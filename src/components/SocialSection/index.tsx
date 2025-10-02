@@ -12,12 +12,12 @@ export const SocialSection = () => {
   const { animationClasses } = useAnimationClasses();
 
   const socialLinks = [
-    { id: 0, icon: () => <Image src="/icons/github.svg" alt="GitHub" width={24} height={24} className={styles.socialIcon} />, label: "GitHub", url: "https://github.com/Lucas-Christian" },
-    { id: 1, icon: () => <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className={styles.socialIcon} />, label: "LinkedIn", url: "https://www.linkedin.com/in/lucas-christian-226846245/" },
-    { id: 2, icon: () => <Image src="/icons/youtube.svg" alt="YouTube" width={24} height={24} className={styles.socialIcon} />, label: "YouTube", url: "https://www.youtube.com/@dev-luch" },
-    { id: 3, icon: () => <Image src="/icons/whatsapp.svg" alt="WhatsApp" width={24} height={24} className={styles.socialIcon} />, label: "WhatsApp", url: "https://wa.me/message/VLJUSJK2WXJBJ1" },
-    { id: 4, icon: () => <Image src="/icons/tiktok.svg" alt="TikTok" width={24} height={24} className={styles.socialIcon} />, label: "TikTok", url: "https://www.tiktok.com/@dev.luch" },
-    { id: 5, icon: () => <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className={styles.socialIcon} />, label: "Instagram", url: "https://www.instagram.com/dev.luch/" }
+    { id: 0, icon: () => <Image src="/developer-icons/social-icons/github.svg" alt="GitHub" width={24} height={24} className={styles.socialIcon} />, label: "GitHub", url: "https://github.com/Lucas-Christian" },
+    { id: 1, icon: () => <Image src="/developer-icons/social-icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className={styles.socialIcon} />, label: "LinkedIn", url: "https://www.linkedin.com/in/lucas-christian-226846245/" },
+    { id: 2, icon: () => <Image src="/developer-icons/social-icons/youtube.svg" alt="YouTube" width={24} height={24} className={styles.socialIcon} />, label: "YouTube", url: "https://www.youtube.com/@dev-luch" },
+    { id: 3, icon: () => <Image src="/developer-icons/social-icons/whatsapp.svg" alt="WhatsApp" width={24} height={24} className={styles.socialIcon} />, label: "WhatsApp", url: "https://wa.me/message/VLJUSJK2WXJBJ1" },
+    { id: 4, icon: () => <Image src="/developer-icons/social-icons/tiktok.svg" alt="TikTok" width={24} height={24} className={styles.socialIcon} />, label: "TikTok", url: "https://www.tiktok.com/@dev.luch" },
+    { id: 5, icon: () => <Image src="/developer-icons/social-icons/instagram.svg" alt="Instagram" width={24} height={24} className={styles.socialIcon} />, label: "Instagram", url: "https://www.instagram.com/dev.luch/" }
   ];
 
   return (

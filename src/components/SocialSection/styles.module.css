@@ -135,7 +135,6 @@
 
 .socialIcon {
   font-size: 2rem;
-  stroke: var(--glowing-border);
   transition: all 0.3s ease;
 }
 

@@ -76,7 +76,7 @@ export const skillsData: Skill[] = [
     experienceKey: 'skills.experience.4+ years',
     projects: ['skills.projects.all-projects'],
     relatedSkills: ['Git', 'VS Code', 'CI/CD'],
-    icon: '/developer-icons/github-light.svg',
+    icon: '/developer-icons/social-icons/github.svg',
     color: '#181717',
     glowColor: '#181717'
   },
