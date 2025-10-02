@@ -2,7 +2,10 @@
 .holographicContainer {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background: 
+    radial-gradient(1000px 500px at 50% 0%, rgba(0, 240, 255, 0.04), transparent 70%),
+    radial-gradient(800px 400px at 0% 50%, rgba(60, 229, 252, 0.02), transparent 60%),
+    linear-gradient(135deg, rgba(0, 240, 255, 0.01) 0%, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
   color: #ffffff;
   overflow: hidden;
   padding: 2rem;
