@@ -1,3 +1,35 @@
+/* Otimizações de Performance */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduzir animações em dispositivos com preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+  .particles,
+  .particle-system {
+    filter: blur(0.5px);
+    opacity: 0.8;
+  }
+  
+  .particle {
+    transform: scale(0.8);
+  }
+}
+
 :root {
   /* Light theme — Azul futurista */
   --background: #1033AD; /* azul profundo de base */

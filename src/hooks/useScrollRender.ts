@@ -98,7 +98,9 @@ export const useScrollRender = (options: UseScrollRenderOptions = {}): UseScroll
       };
       
       // Pequeno delay para garantir que o conteúdo foi renderizado
-      setTimeout(measureHeight, 100);
+      const timeoutId = setTimeout(measureHeight, 100);
+      
+      return () => clearTimeout(timeoutId);
     }
 
     // Criar observer
@@ -117,7 +119,7 @@ export const useScrollRender = (options: UseScrollRenderOptions = {}): UseScroll
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [handleIntersection, threshold, rootMargin, preserveHeight, containerHeight]);
+  }, [handleIntersection, threshold, rootMargin, preserveHeight, shouldRender, hasMeasured]);
 
   const containerStyle: React.CSSProperties = {
     minHeight: preserveHeight && !shouldRender && hasMeasured ? containerHeight : minHeight,

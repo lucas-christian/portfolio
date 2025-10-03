@@ -292,7 +292,7 @@ export const HolographicProjectCards: React.FC<HolographicProjectCardsProps> = (
             <button className={styles.zoomCloseButton} onClick={closeZoomModal}>
               <X size={24} />
             </button>
-            <img
+            <Image
               src={zoomModal.image}
               alt={zoomModal.alt}
               className={styles.zoomImage}

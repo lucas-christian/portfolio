@@ -3,11 +3,12 @@
 import React, { useState, useRef } from 'react';
 import { skillsData, skillCategories } from '@data/skills';
 import { SkillModal } from '../SkillModal';
-import { ParticleSystem } from '../ParticleSystem';
+import { OptimizedParticleSystem } from '../OptimizedParticleSystem';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
 import { useLang } from '../../hooks/useLang';
 import { Search, Zap, Palette, Settings, Cloud, Smartphone, Wrench, Network, GitFork } from 'lucide-react';
 import styles from './styles.module.css';
+import Image from 'next/image';
 
 interface SkillsSectionProps {
   className?: string;
@@ -96,7 +97,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
       </div>
 
       {/* Particle System */}
-      <ParticleSystem />
+      <OptimizedParticleSystem />
 
       {/* Header */}
       <div className={styles.header}>
@@ -190,7 +191,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
                   >
                      <div className={styles.skillIcon}>
                        {skill.icon ? (
-                         <img 
+                         <Image 
                            src={skill.icon} 
                            alt={skill.name}
                            className={styles.skillIconImage}

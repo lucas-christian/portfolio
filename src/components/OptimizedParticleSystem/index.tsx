@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
-import { useScrollRender } from '../../hooks/useScrollRender';
 import styles from './styles.module.css';
 
 export const OptimizedParticleSystem: React.FC = () => {
@@ -23,14 +22,6 @@ export const OptimizedParticleSystem: React.FC = () => {
   
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  
-  // Hook para detectar visibilidade
-  const { ref, isVisible, shouldRender } = useScrollRender({
-    threshold: 0.1,
-    rootMargin: '100px',
-    unmountDelay: 500,
-    preserveHeight: true
-  });
 
   // Detectar mobile
   useEffect(() => {
@@ -44,13 +35,12 @@ export const OptimizedParticleSystem: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Pausar animações quando não visível
+  // Pausar animações quando não visível (simplificado)
   useEffect(() => {
-    setIsPaused(!isVisible);
-  }, [isVisible]);
+    setIsPaused(false); // Sempre ativo, sem lazy loading
+  }, []);
 
   useEffect(() => {
-    if (!shouldRender) return;
     
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -155,30 +145,10 @@ export const OptimizedParticleSystem: React.FC = () => {
       }
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [shouldRender, isVisible, isPaused, isMobile]);
-
-  if (!shouldRender) {
-    return (
-      <div 
-        ref={ref as React.RefObject<HTMLDivElement>}
-        className={`${styles.particleSystem} ${animationClasses}`}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          zIndex: 1,
-          minHeight: '200px'
-        }}
-      />
-    );
-  }
+  }, [isPaused, isMobile]);
 
   return (
     <div 
-      ref={ref as React.RefObject<HTMLDivElement>}
       className={`${styles.particleSystem} ${animationClasses}`}
       style={{
         position: 'absolute',

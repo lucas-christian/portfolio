@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAnimationClasses } from '../../hooks/useAnimationClasses';
-import { useScrollRender } from '../../hooks/useScrollRender';
 import styles from './styles.module.css';
 
 interface OptimizedParticlesProps {
@@ -27,14 +26,6 @@ export const OptimizedParticles: React.FC<OptimizedParticlesProps> = ({
   const { animationClasses } = useAnimationClasses();
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  
-  // Hook para detectar visibilidade
-  const { ref, isVisible, shouldRender } = useScrollRender({
-    threshold: 0.1,
-    rootMargin: '100px',
-    unmountDelay: 500,
-    preserveHeight: true
-  });
 
   // Detectar mobile
   useEffect(() => {
@@ -48,32 +39,21 @@ export const OptimizedParticles: React.FC<OptimizedParticlesProps> = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Pausar animações quando não visível
+  // Pausar animações quando não visível (simplificado)
   useEffect(() => {
     if (pauseWhenHidden) {
-      setIsPaused(!isVisible);
+      setIsPaused(false); // Sempre ativo, sem lazy loading
     }
-  }, [isVisible, pauseWhenHidden]);
+  }, [pauseWhenHidden]);
 
   // Calcular número otimizado de partículas
   const optimizedCount = React.useMemo(() => {
     if (!mobileOptimized) return count;
-    return isMobile ? Math.max(4, Math.floor(count / 3)) : count;
+    return isMobile ? Math.max(2, Math.floor(count / 4)) : Math.floor(count / 2);
   }, [count, isMobile, mobileOptimized]);
-
-  if (!shouldRender) {
-    return (
-      <div 
-        ref={ref as React.RefObject<HTMLDivElement>}
-        className={`${styles.particles} ${className} ${animationClasses}`}
-        style={{ minHeight: '200px' }}
-      />
-    );
-  }
 
   return (
     <div 
-      ref={ref as React.RefObject<HTMLDivElement>}
       className={`${styles.particles} ${className} ${animationClasses} ${isPaused ? styles.paused : ''}`}
     >
       {Array.from({ length: optimizedCount }, (_, index) => (
